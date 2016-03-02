@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "stable"
+
+before_script:
+  - "artifacts -v || curl -sL https://raw.githubusercontent.com/meatballhat/artifacts/master/install | bash"
+script:
+  - npm run build
+after_script:
+  - ./build/travis-upload-artifacts.sh
