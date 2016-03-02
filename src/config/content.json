@@ -1,5 +1,31 @@
 [
   {
-
+  "id":"getting-started",
+  "title":"Getting Started",
+  "image":"http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
+  "url":{
+    "value": "http://static.musescore.com/792126/8ca14ebe5f/score.mscz",
+    "localise": true
+  },
+  "ttl":630720000,
+  }
+  {
+  "id":"musescore-in-minutes",
+  "title":"MuseScore in Minutes",
+  "image":"https://s3.amazonaws.com/s.musescore.org/images/musescore-in-minutes.png",
+  "url":"https://www.youtube.com/watch?v=YZ4kRzkHroU&list=PLTYuWi2LmaPGb4SKXHm9JULQ-0CH8KpUk",
+  "description":"<ul><li class="first"><a href="https://www.youtube.com/watch?v=YZ4kRzkHroU" class="video-tutorial-link" title="Lesson 1 - Score Setup" data-ytcode="YZ4kRzkHroU">Lesson 1 - Score Setup</a></li>
+<li><a href="https://www.youtube.com/watch?v=GjqYzjTCS4g" class="video-tutorial-link" title="Lesson 2 - Working with MuseScore" data-ytcode="GjqYzjTCS4g">Lesson 2 - Working with MuseScore</a></li>
+<li><a href="https://www.youtube.com/watch?v=nJSQCgqUZuM" class="video-tutorial-link" title="Lesson 3 - Note Input" data-ytcode="nJSQCgqUZuM">Lesson 3 - Note Input</a></li>
+<li><a href="https://www.youtube.com/watch?v=IZ1b1aF9lpg" class="video-tutorial-link" title="Lesson 4 - MIDI Keyboard Input" data-ytcode="IZ1b1aF9lpg">Lesson 4 - MIDI Keyboard Input</a></li>
+<li><a href="https://www.youtube.com/watch?v=-htkF5RB17g" class="video-tutorial-link" title="Lesson 5 - More Input Ideas" data-ytcode="-htkF5RB17g">Lesson 5 - More Input Ideas</a></li>
+<li><a href="https://www.youtube.com/watch?v=8nglDCxzfeA" class="video-tutorial-link" title="Lesson 6 - Text, Lyrics and Chords" data-ytcode="8nglDCxzfeA">Lesson 6 - Text, Lyrics and Chords</a></li>
+<li><a href="https://www.youtube.com/watch?v=wnXLaZW9uA8" class="video-tutorial-link" title="Lesson 7 - Tablature and Drum Notation" data-ytcode="wnXLaZW9uA8">Lesson 7 - Tablature and Drum Notation</a></li>
+<li><a href="https://www.youtube.com/watch?v=mHGZ47pwuB8" class="video-tutorial-link" title="Lesson 8 - Repeats and Endings, Part 1" data-ytcode="mHGZ47pwuB8">Lesson 8 - Repeats and Endings, Part 1</a></li>
+<li><a href="https://www.youtube.com/watch?v=07uPDU11Gi4" class="video-tutorial-link" title="Lesson 9 - Repeats and Endings, Part 2" data-ytcode="07uPDU11Gi4">Lesson 9 - Repeats and Endings, Part 2</a></li>
+<li><a href="https://www.youtube.com/watch?v=KnoKgja20fg" class="video-tutorial-link" title="Lesson 10 - Articulations, Dynamics and Text" data-ytcode="KnoKgja20fg">Lesson 10 - Articulations, Dynamics and Text</a></li>
+<li class="last"><a href="https://www.youtube.com/watch?v=6OrSmHrDQg0" class="video-tutorial-link" title="Lesson 11 - Layout and Parts" data-ytcode="6OrSmHrDQg0">Lesson 11 - Layout and Parts</a></li>
+</ul>",
+  "ttl":604800,
   }
 ]
