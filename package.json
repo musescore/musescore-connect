@@ -7,20 +7,24 @@
     "build": "gulp build"
   },
   "devDependencies": {
-    "gulp-inline-source": "^2.1.0",
     "browserify": "^12.0.1",
+    "connect": "^3.4.0",
     "gulp": "^3.9.0",
     "gulp-header": "^1.7.1",
+    "gulp-inline-source": "^2.1.0",
     "gulp-rename": "^1.2.2",
     "gulp-uglify": "^1.5.1",
+    "lodash.map": "^4.2.1",
+    "q": "^1.4.1",
+    "serve-static": "^1.10.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.6.1",
-    "connect": "^3.4.0",
-    "serve-static": "^1.10.0"
+    "watchify": "^3.6.1"
   },
   "dependencies": {
+    "base64-img": "^1.0.3",
     "js-cookie": "^2.1.0",
+    "lodash.foreach": "^4.1.0",
     "node-notifier": "^4.5.0",
     "virtual-dom": "^2.1.1"
   }
