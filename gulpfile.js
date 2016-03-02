@@ -59,12 +59,5 @@ function standardHandler(err) {
     util.log(util.colors.red('Error'), err.message);
 }
 
-// Handler for browserify
-function browserifyHandler(err) {
-    standardHandler(err);
-}
-gulp.task('test', function () {
-
-});
 gulp.task('build', ['browserify', 'inlinesource']);
 gulp.task('watch', ['watchify']);
