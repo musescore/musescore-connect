@@ -6,7 +6,7 @@
     <title>MuseScore Connect</title>
 </head>
 <body>
-<div class="page" >
+<div id="page" >
     <div id="connect-title"><a href="https://musescore.com/">ONLINE COMMUNITY</a></div>
     <form class="search" action="https://musescore.com/sheetmusic"
           accept-charset="UTF-8"
@@ -62,7 +62,8 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var container = document.getElementById('container');
-        window.connectApp(container);
+        var page = document.getElementById('page');
+        window.connectApp(container, page);
     });
 </script>
 </body>
