@@ -1,4 +1,4 @@
-var content = require('./config/content.json');
+var content = require('./config/content_base64.json');
 
 var Cookies = require('js-cookie');
 console.log(Cookies.get('name'));
