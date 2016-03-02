@@ -26,6 +26,7 @@
     "base64-img": "^1.0.3",
     "js-cookie": "^2.1.0",
     "lodash.foreach": "^4.1.0",
+    "main-loop": "^3.2.0",
     "node-notifier": "^4.5.0",
     "virtual-dom": "^2.1.1"
   }

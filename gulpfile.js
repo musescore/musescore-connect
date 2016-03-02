@@ -27,6 +27,7 @@ gulp.task('inlinesource', function () {
 gulp.task('browserify', function () {
     return build('main', 'bundle');
 });
+
 gulp.task('base64', function(){
     var promises = [];
     _.forEach(content, function (item) {
@@ -49,6 +50,7 @@ gulp.task('base64', function(){
         });
     });
 });
+
 function build() {
     var bundler = browserify('./src/index.js', {fullPaths: false});
     bundler.on('log', util.log.bind(util));
