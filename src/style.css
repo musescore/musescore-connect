@@ -1,6 +1,10 @@
 body{
     background: #F7F7F7;
 }
+.page{
+    width: 184px;
+    margin:auto;
+}
 .border {
     border-bottom: 1px solid silver;
     margin: 10px 0 0 0;
