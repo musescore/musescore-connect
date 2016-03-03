@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var watchify = require('watchify');
+var request = require('request');
 var browserify = require('browserify');
+var mkpath = require('mkpath');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
 var notifier = require('node-notifier');
@@ -9,10 +11,10 @@ var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var inlinesource = require('gulp-inline-source');
 var runSequence = require('run-sequence');
-var base64Img = require('base64-img');
 var Q = require('q');
 var content = require('./src/config/content.json');
 var fs = require('fs');
+var lwip = require('lwip');
 var _ = {
     forEach: require('lodash.foreach')
 };
@@ -28,21 +30,50 @@ gulp.task('browserify', function () {
     return build('main', 'bundle');
 });
 
-gulp.task('base64', function(){
+gulp.task('copy', function () {
+    rmDir('./dist/img');
+    return gulp.src(['./img/*'])
+        .pipe(gulp.dest('./dist/img/'));
+});
+
+gulp.task('resize', function () {
     var promises = [];
-    _.forEach(content, function (item) {
+    var contentResizedImages = [];
+    rmDir('./img');
+    mkpath('./img');
+    _.forEach(content, function (item, index) {
         var defer = Q.defer();
-        base64Img.requestBase64(item.image, function (err, res, body) {
-            item.imageBase64 = body;
-            defer.resolve();
+        var n = item.image.lastIndexOf('.');
+        var d = item.image.lastIndexOf('/');
+        var ext = item.image.substring(n + 1);
+        var name = item.image.substring(d + 1, n);
+        var filename = './img' + item.id + '.' + ext;
+
+        download(item.image, filename, function (buffer) {
+            lwip.open(filename, ext, function (err, image) {
+                lwip.create(image.width(), image.height(), 'white', function (err, canvas) {
+                    // paste original image on top of the canvas
+                    canvas.paste(0, 0, image, function (err, image) {
+                        // now image has a white background...
+                        image.batch()
+                            .resize(160)
+                            .writeFile('./img/' + name + '_small.jpg', 'jpg', {quality: 75}, function (err) {
+                                item.image = 'img/' + name + '_small.jpg';
+                                contentResizedImages[index] = item;
+                                defer.resolve();
+                            });
+                        fs.unlink(filename);
+                    });
+                });
+            });
         });
         promises.push(defer.promise)
     });
 
     return Q.all(promises).then(function () {
-        var outputFilename = './src/config/content_base64.json';
-        fs.writeFile(outputFilename, JSON.stringify(content, null, 4), function(err) {
-            if(err) {
+        var outputFilename = './src/config/content_resized.json';
+        fs.writeFile(outputFilename, JSON.stringify(content, null, 4), function (err) {
+            if (err) {
                 console.log(err);
             } else {
                 console.log("JSON saved to " + outputFilename);
@@ -50,6 +81,23 @@ gulp.task('base64', function(){
         });
     });
 });
+
+gulp.task('watchify', function () {
+    return bundle('main', 'bundle')
+});
+
+
+
+gulp.task('build', function (callback) {
+    runSequence(
+        'resize',
+        'copy',
+        'browserify',
+        'inlinesource',
+        callback);
+});
+
+gulp.task('watch', ['watchify']);
 
 function build() {
     var bundler = browserify('./src/index.js', {fullPaths: false});
@@ -62,13 +110,9 @@ function build() {
         .pipe(gulp.dest('./src'));
 }
 
-gulp.task('watchify', function () {
-    return bundle('main', 'bundle')
-});
-
 function bundle() {
     watchify.args.debug = true;
-    watchify.args.fullPaths = true;
+    watchify.args.fullPaths = false;
     var bundler = watchify(browserify('./src/index.js', watchify.args));
     bundler.on('update', rebundle);
     bundler.on('log', util.log.bind(util));
@@ -83,20 +127,26 @@ function bundle() {
     return rebundle();
 }
 
-// Standard handler
-function standardHandler(err) {
-    // Notification
-    notifier.notify({message: 'Error: ' + err.message});
-    // Log to console
-    util.log(util.colors.red('Error'), err.message);
+function download(uri, filename, callback) {
+    request.head(uri, function (err, res, body) {
+        request(uri).pipe(fs.createWriteStream(filename)).on('close', callback);
+    });
 }
 
-gulp.task('build', function(callback) {
-    runSequence(
-        'base64',
-        'browserify',
-        'inlinesource',
-        callback);
-});
-
-gulp.task('watch', ['watchify']);
+function rmDir(dirPath) {
+    try {
+        var files = fs.readdirSync(dirPath);
+    }
+    catch (e) {
+        return;
+    }
+    if (files.length > 0)
+        for (var i = 0; i < files.length; i++) {
+            var filePath = dirPath + '/' + files[i];
+            if (fs.statSync(filePath).isFile())
+                fs.unlinkSync(filePath);
+            else
+                rmDir(filePath);
+        }
+    fs.rmdirSync(dirPath);
+}

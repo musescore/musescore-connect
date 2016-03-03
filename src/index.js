@@ -1,4 +1,5 @@
-var content = require('./config/content.json');
+
+var content = require('./config/content_resized.json');
 var Cookies = require('js-cookie');
 var createElement = require('virtual-dom/create-element');
 var template = require('./template');
@@ -10,11 +11,13 @@ var _ = {
 
 
 var constructor = function (container, outerContainer) {
-
     var initState = _.findKey(content, function (item) {
         return !Cookies.get(item.id);
     });
 
+    if(!initState){
+        initState = 0;
+    }
     var loopSpeed = 5000;
     var loop = mainLoop(initState, render, {
         create: require("virtual-dom/create-element"),
