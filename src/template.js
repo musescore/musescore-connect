@@ -5,7 +5,7 @@ module.exports = function (item) {
     var description = item.description;
     var title = item.title;
 
-    if(Transifex){
+    if(window.Transifex){
         if (item.url.localise) {
             url = Transifex.live.translateText(item.url.value);
         }
