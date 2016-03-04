@@ -5,10 +5,8 @@ var browserify = require('browserify');
 var mkpath = require('mkpath');
 var source = require('vinyl-source-stream');
 var buffer = require('vinyl-buffer');
-var notifier = require('node-notifier');
 var util = require('gulp-util');
 var uglify = require('gulp-uglify');
-var rename = require('gulp-rename');
 var inlinesource = require('gulp-inline-source');
 var runSequence = require('run-sequence');
 var Q = require('q');
@@ -19,12 +17,12 @@ var _ = {
     forEach: require('lodash.foreach')
 };
 
-
 gulp.task('inlinesource', function () {
     return gulp.src('./index.html')
         .pipe(inlinesource())
         .pipe(gulp.dest('./dist'));
 });
+
 // Fonts
 gulp.task('fonts', function() {
     return gulp.src(['src/fonts/*'])

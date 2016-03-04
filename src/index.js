@@ -33,6 +33,8 @@ var constructor = function (container, outerContainer) {
     var hovering = false;
 
     function render(index) {
+        console.log(content);
+        console.log(index);
         return h('div',
             {
                 afterRender: new AfterRender()
@@ -55,7 +57,7 @@ var constructor = function (container, outerContainer) {
     }
 
     function next() {
-        var newState = loop.state + 1;
+        var newState = parseInt(loop.state) + 1;
         if (newState >= content.length) {
             newState = 0;
         }
@@ -64,7 +66,7 @@ var constructor = function (container, outerContainer) {
     }
 
     function prev() {
-        var newState = loop.state - 1;
+        var newState = parseInt(loop.state) - 1;
 
         if (newState < 0) {
             newState = content.length - 1;

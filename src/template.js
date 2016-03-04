@@ -1,6 +1,7 @@
 var h = require('virtual-dom/h');
 var Cookies = require('js-cookie');
 module.exports = function (item) {
+    console.log(item);
     var url = item.url.value;
     var description = item.description;
     var title = item.title;
