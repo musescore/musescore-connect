@@ -28,7 +28,7 @@ gulp.task('inlinesource', function () {
 // Fonts
 gulp.task('fonts', function() {
     return gulp.src([
-            'fonts/*'])
+            'src/fonts/*'])
         .pipe(gulp.dest('dist/fonts/'));
 });
 
