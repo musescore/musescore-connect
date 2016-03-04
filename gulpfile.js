@@ -25,6 +25,12 @@ gulp.task('inlinesource', function () {
         .pipe(inlinesource())
         .pipe(gulp.dest('./dist'));
 });
+// Fonts
+gulp.task('fonts', function() {
+    return gulp.src([
+            'fonts/*'])
+        .pipe(gulp.dest('dist/fonts/'));
+});
 
 gulp.task('browserify', function () {
     return build('main', 'bundle');
@@ -114,6 +120,7 @@ gulp.task('build', function (callback) {
         'browserify',
         'inlinesource',
         'translations',
+        'fonts',
         callback);
 });
 
