@@ -2,20 +2,79 @@ img {
     max-width: 100%;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 body {
     background: #F7F7F7;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, sans-serif;
+    font-size: 13px;
+    line-height: 1.5;
 }
 
 #page {
     width: 184px;
+    max-height: 500px;
+    position: relative;
     margin: auto;
 }
 
-.navigation{
-
+a {
+    color: #3a80c6;
+    text-decoration: none;
 }
-.navigation span{
+
+img {
+    max-width: 100%;
+}
+
+.spotlight-image {
+    padding: 5px 20px;
+}
+
+.spotlight-title {
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.spotlight-body {
+    text-align: center;
+}
+
+.navigation {
+    height: 30px;
+    position: absolute;
+    top: 180px;
+    z-index: 0;
+    width: 100%;
+    display: block;
+    bottom: 0;
+}
+
+.navigation span {
     cursor: pointer;
+}
+
+.next {
+    color: #555555;
+    font-size: 25px;
+    float: right;
+    width: 20px;
+    height: 30px;
+}
+
+.prev {
+    color: #555555;
+    font-size: 25px;
+    float: left;
+    width: 20px;
+    height: 30px;
+}
+.next:hover, .prev:hover{
+    color: black;
 }
 .border {
     border-bottom: 1px solid silver;
@@ -31,6 +90,7 @@ body {
 }
 
 .search input {
+    width: 152px;
     border: none;
     padding: 7.5px 20px;
 }
@@ -48,17 +108,14 @@ body {
     height: 30px;
     background: #F7F7F7;
 }
-
+.search .icon-search{
+    font-size: 20px;
+    color: #555555;
+}
 .search button:hover {
     background: #eeeeee;
 }
 
-.search .icon {
-    display: block;
-    width: 30px;
-    height: 30px;
-    background: no-repeat center url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAfdJREFUeNqUk01vElEUht87A0VghoIEFjUpS5Pqwj+gXaorYxMXJC4gJipLNyALGxO7YumCLhoNsmiMCxP1T5hqGz9WihJXjREwoTDAfNy5npnJoBmnRE9yZ5K59z7vec85w4QQWBAyLb7oQCT4oVariVwuh0zmJEbjMY6GQ2xu3mP+frVanZ9tNBq/AcOJFXm2+8S8cfM2VlZOgTEJhmng++Ehdh49FleuXT+RTy3pQUHJefTHJtvZfmiev7COwuoqYktRxKIylHgchUIBG1c38Pxpe+ar/gW4f/eOfXrtDGIJ1VV28nUrwwSikQjUVAoXL11GvV4XoRnEEwmsnT0HdTmDsW7BpsJ6pj0Uo1c+n0c6nUYowDRMKOqyq27bgKZzF4I5hNohSUgqyjEAKpZh6KTlqdl0V5vZLkR4ZqDrOp2zwgGj0Qjfuh1MpxP4c8HpInXGhVkWR7fbxaDfDwe02212sPca7/f30Ov9ACcfDofT+nk0Q38wwBva39p6IP85B3OAE8XyrejHd/v4cPCWlHqerdkUX798wquXL9D53HGGiAfbyIKjXKlURDKpQJZlTCYaOOdoNpusWCyKbDaLBHWMIOxYwKIol8tCoU7EacB8iAsI+goLP/VSqSRUVZ1DpH9V90VarRbTNA1D+sn+20JY/BJgAC9N4OAxjL1OAAAAAElFTkSuQmCC');
-}
 
 .footer {
     font-size: 11px;
@@ -135,4 +192,42 @@ body {
 
 .social-icon-linkedin {
     background-image: url(data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACygABAsoAAv7KAAL+ygAC/soAAv7KAAL+ygAC/soAAv7KAAL+ygAC/soAAv7KAAL+ygAC/soAAv7KAAL+ygABgsoAAv7KAAP+ygAD/soAA/7KAAP+ygAD/soAA/7KAAP+ygAD/soAA/7KAAP+ygAD/soAA/7KAAP+ygAD/soAAv7KAAL+zgQD/vJAg/9nAgP/ZwID/vJAg/8+wYP/ZwID/z7Bg/7OBAP+zgQD/2cCA/9nAgP/GoED/s4EA/7KAAL+ygAC/s4EA/8ahQP///////////8ahQP/s4L///////+zgv/+zgQD/s4EA////////////2cCA/7OBAP+ygAC/soAAv7SCAP/GoUD////////////GoUD/7OC////////s4L//tIIA/7SCAP///////////9nAgP+0ggD/soAAv7KAAL+1gwD/x6JA////////////x6JA/+zgv///////7OC//7WDAP+1gwD////////////awYD/tYMA/7KAAL+ygAC/toQA/8ijQP///////////8ijQP/t4L///////+3gv/+2hAD/toQA////////////2sKA/7aEAP+ygAC/soAAv7iHAP/JpUD////////////JpUD/7eG/////////////yaVA/9e7cP///////////86tUP+4hwD/soAAv7KAAL+6igD/y6dA////////////y6dA/+7iv//////////////////////////////////HoDD/uooA/7KAAL+ygAC/vY8A/86rQP///////////86rQP/v47////////fx3//38d/////////////jz4//vY8A/72PAP+ygAC/soAAv8KVAf/ClQH/0a9A/82oMP/ClQH/wpUB/8KVAf/ClQH/wpUB/8KVAf/ClQH/wpUB/8KVAf/ClQH/soAAv7KAAL/HnRX/3MJs////////////0a9A/8edFf/HnRX/x50V/8edFf/HnRX/x50V/8edFf/HnRX/x50V/7KAAL+ygAC/zqc6/+HJhf///////////9e4YP/Opzr/zqc6/86nOv/Opzr/zqc6/86nOv/Opzr/zqc6/86nOv+ygAC/soAAv9a0Y//WtGP/5tGi/+bRov/WtGP/1rRj/9a0Y//WtGP/1rRj/9a0Y//WtGP/1rRj/9a0Y//WtGP/soAAv7KAAK/Xtm//4MSL/+DEi//gxIv/4MSL/+DEi//gxIv/4MSL/+DEi//gxIv/4MSL/+DEi//gxIv/2rt4/7KAAL+ygAAwsoAAr7KAAL+ygAC/soAAv7KAAL+ygAC/soAAv7KAAL+ygAC/soAAv7KAAL+ygAC/soAAv7KAAL+ygABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==);
+}
+
+@font-face {
+    font-family: 'msconnect';
+    src: url('fonts/msconnect.eot?f98faa');
+    src: url('fonts/msconnect.eot?f98faa#iefix') format('embedded-opentype'),
+    url('fonts/msconnect.ttf?f98faa') format('truetype'),
+    url('fonts/msconnect.woff?f98faa') format('woff'),
+    url('fonts/msconnect.svg?f98faa#msconnect') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'msconnect' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-navigate_next:before {
+    content: "\e409";
+}
+
+.icon-keyboard_arrow_left:before {
+    content: "\e314";
+}
+
+.icon-search:before {
+    content: "\e8b6";
 }

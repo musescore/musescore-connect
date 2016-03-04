@@ -21,11 +21,11 @@ module.exports = function (item) {
             }
         },
         [
-            h('h3', title),
-            h('img', {
+            h('div.spotlight-title', title),
+            h('img.spotlight-image', {
                     src: item.image
                 }
             ),
-            h('div', description)]
+            h('div.spotlight-body', description)]
     );
 };

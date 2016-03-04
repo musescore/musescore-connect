@@ -10,6 +10,7 @@ var _ = {
 
 
 var constructor = function (container, outerContainer) {
+
     var initState = _.findKey(content, function (item) {
         return !Cookies.get(item.id);
     });
@@ -22,6 +23,7 @@ var constructor = function (container, outerContainer) {
         initState = 0;
     }
     var loopSpeed = 5000;
+    var interval;
     var loop = mainLoop(initState, render, {
         create: require("virtual-dom/create-element"),
         diff: require("virtual-dom/diff"),
@@ -38,16 +40,16 @@ var constructor = function (container, outerContainer) {
             [
                 template(content[index]),
                 h('div.navigation', [
-                    h('span', {
-                        "onclick": function () {
-                            next();
-                        }
-                    }, 'next'),
-                    h('span', {
+                    h('span.prev', {
                         "onclick": function () {
                             prev();
                         }
-                    }, 'prev')
+                    }, h('span.icon-keyboard_arrow_left', {})),
+                    h('span.next', {
+                        "onclick": function () {
+                            next();
+                        }
+                    }, h('span.icon-navigate_next', {}))
                 ])
             ])
     }
@@ -58,6 +60,7 @@ var constructor = function (container, outerContainer) {
             newState = 0;
         }
         loop.update(newState);
+        createInterval();
     }
 
     function prev() {
@@ -67,6 +70,7 @@ var constructor = function (container, outerContainer) {
             newState = content.length - 1;
         }
         loop.update(newState);
+        createInterval();
     }
 
     outerContainer.onmouseover = function (e) {
@@ -75,11 +79,16 @@ var constructor = function (container, outerContainer) {
     outerContainer.onmouseout = function (e) {
         hovering = false;
     };
-    var interval = setInterval(function () {
-        if (!hovering) {
-            next();
-        }
-    }, loopSpeed);
+    createInterval();
+    function createInterval(){
+        clearInterval(interval);
+        interval = setInterval(function () {
+            if (!hovering) {
+                next();
+            }
+        }, loopSpeed);
+    }
+
 
     container.appendChild(loop.target);
 
