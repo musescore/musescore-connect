@@ -1,4 +1,3 @@
-
 var content = require('./config/content_resized.json');
 var Cookies = require('js-cookie');
 var createElement = require('virtual-dom/create-element');
@@ -14,8 +13,12 @@ var constructor = function (container, outerContainer) {
     var initState = _.findKey(content, function (item) {
         return !Cookies.get(item.id);
     });
+    var AfterRender = function () {
+    };
+    AfterRender.prototype.hook = function (node) {
 
-    if(!initState){
+    };
+    if (!initState) {
         initState = 0;
     }
     var loopSpeed = 5000;
@@ -28,21 +31,25 @@ var constructor = function (container, outerContainer) {
     var hovering = false;
 
     function render(index) {
-        return h('div', [
-            template(content[index]),
-            h('div.navigation', [
-                h('span', {
-                    "onclick": function () {
-                        next();
-                    }
-                }, 'next'),
-                h('span', {
-                    "onclick": function () {
-                        prev();
-                    }
-                }, 'prev')
+        return h('div',
+            {
+                afterRender: new AfterRender()
+            },
+            [
+                template(content[index]),
+                h('div.navigation', [
+                    h('span', {
+                        "onclick": function () {
+                            next();
+                        }
+                    }, 'next'),
+                    h('span', {
+                        "onclick": function () {
+                            prev();
+                        }
+                    }, 'prev')
+                ])
             ])
-        ])
     }
 
     function next() {
