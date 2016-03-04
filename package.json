@@ -4,7 +4,8 @@
   "description": "Connect mini web app",
   "main": "src/index.js",
   "scripts": {
-    "build": "gulp build"
+    "build": "gulp build",
+    "api": "gulp api"
   },
   "devDependencies": {
     "browserify": "^12.0.1",
@@ -26,10 +27,12 @@
     "watchify": "^3.6.1"
   },
   "dependencies": {
+    "html-to-vdom": "^0.7.0",
     "js-cookie": "^2.1.0",
     "lodash.find": "^4.2.0",
     "lodash.findkey": "^4.2.0",
     "lodash.foreach": "^4.1.0",
+    "lodash.merge": "^4.3.2",
     "main-loop": "^3.2.0",
     "node-notifier": "^4.5.0",
     "virtual-dom": "^2.1.1"

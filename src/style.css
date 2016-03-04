@@ -33,9 +33,12 @@ img {
     margin: 5px 20px;
     border: 1px solid #dddddd;
     width: 145px;
+    max-height: 175px;
+    overflow: hidden;
 }
 
 .spotlight-title {
+    height: 50px;
     font-weight: bold;
     padding-bottom: 10px;
     padding-top: 10px;
@@ -50,11 +53,10 @@ img {
 .navigation {
     height: 30px;
     position: absolute;
-    top: 180px;
+    bottom: -30px;
     z-index: 0;
     width: 100%;
     display: block;
-    bottom: 0;
 }
 
 .navigation span {

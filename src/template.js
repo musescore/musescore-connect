@@ -1,11 +1,19 @@
 var h = require('virtual-dom/h');
+var VNode = require('virtual-dom/vnode/vnode');
+var VText = require('virtual-dom/vnode/vtext');
+
+var convertHTML = require('html-to-vdom')({
+    VNode: VNode,
+    VText: VText
+});
 var Cookies = require('js-cookie');
 module.exports = function (item) {
     var url = item.url.value;
     var description = item.description;
     var title = item.title;
+    console.log(item.nonTranslatable);
+    if (window.Transifex && !item.nonTranslatable) {
 
-    if(window.Transifex){
         if (item.url.localise) {
             url = Transifex.live.translateText(item.url.value);
         }
@@ -21,10 +29,10 @@ module.exports = function (item) {
         },
         [
             h('div.spotlight-title', title),
-            h('img.spotlight-image', {
+            h('div.spotlight-image', h('img.', {
                     src: item.image
                 }
-            ),
-            h('div.spotlight-body', description)]
+            )),
+            h('div.spotlight-body', convertHTML(description))]
     );
 };

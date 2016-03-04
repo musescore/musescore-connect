@@ -1,24 +1,21 @@
-var content = require('./config/content_resized.json');
+var content = require('./config/content_clean.json');
+var featured = require('./config/featured_clean.json');
 var Cookies = require('js-cookie');
-var createElement = require('virtual-dom/create-element');
 var template = require('./template');
 var mainLoop = require("main-loop");
 var h = require('virtual-dom/h');
 var _ = {
-    findKey: require("lodash.findkey")
+    findKey: require("lodash.findkey"),
+    merge: require("lodash.merge")
 };
-
 
 var constructor = function (container, outerContainer) {
 
-    var initState = _.findKey(content, function (item) {
+    var initState = _.findKey(featured, function (item) {
         return !Cookies.get(item.id);
     });
-    var AfterRender = function () {
-    };
-    AfterRender.prototype.hook = function (node) {
 
-    };
+    var items = featured.concat(content);
     if (!initState) {
         initState = 0;
     }
@@ -30,17 +27,13 @@ var constructor = function (container, outerContainer) {
         patch: require("virtual-dom/patch")
     });
 
+
     var hovering = false;
 
     function render(index) {
-        console.log(content);
-        console.log(index);
         return h('div',
-            {
-                afterRender: new AfterRender()
-            },
             [
-                template(content[index]),
+                template(items[index]),
                 h('div.navigation', [
                     h('span.prev', {
                         "onclick": function () {
@@ -56,9 +49,10 @@ var constructor = function (container, outerContainer) {
             ])
     }
 
+
     function next() {
         var newState = parseInt(loop.state) + 1;
-        if (newState >= content.length) {
+        if (newState >= items.length) {
             newState = 0;
         }
         loop.update(newState);
@@ -69,7 +63,7 @@ var constructor = function (container, outerContainer) {
         var newState = parseInt(loop.state) - 1;
 
         if (newState < 0) {
-            newState = content.length - 1;
+            newState = items.length - 1;
         }
         loop.update(newState);
         createInterval();
