@@ -4,8 +4,8 @@
     "title": "Getting Started",
     "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
     "url": {
-      "value": "http://static.musescore.com/792126/8ca14ebe5f/score.mscz",
-      "localise": true
+      "value": "https://musescore.org/en/getting-started.mscz",
+      "localise": false
     },
     "ttl": 630720000
   },
