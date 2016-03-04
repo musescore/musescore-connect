@@ -12,8 +12,7 @@ module.exports = function (item) {
         description = Transifex.live.translateText(item.description);
         title = Transifex.live.translateText(item.title);
     }
-
-    return h('a',
+    return h('a.content',
         {
             href: url,
             "onclick": function () {

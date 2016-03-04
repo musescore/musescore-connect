@@ -30,7 +30,9 @@ img {
 }
 
 .spotlight-image {
-    padding: 5px 20px;
+    margin: 5px 20px;
+    border: 1px solid #dddddd;
+    width: 145px;
 }
 
 .spotlight-title {
@@ -41,6 +43,7 @@ img {
 }
 
 .spotlight-body {
+    margin: 5px 15px;
     text-align: center;
 }
 
@@ -62,7 +65,7 @@ img {
     color: #555555;
     font-size: 25px;
     float: right;
-    width: 20px;
+    width: 23px;
     height: 30px;
 }
 
@@ -77,8 +80,8 @@ img {
     color: black;
 }
 .border {
-    border-bottom: 1px solid silver;
-    margin: 10px 0 0 0;
+    border-bottom: 1px solid #ddd;
+    margin: 10px 0 10px 0;
     clear: both;
 }
 
@@ -230,4 +233,8 @@ img {
 
 .icon-search:before {
     content: "\e8b6";
+}
+.content{
+    z-index: 5;
+    position: relative;
 }
