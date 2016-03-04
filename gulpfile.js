@@ -36,6 +36,25 @@ gulp.task('copy', function () {
         .pipe(gulp.dest('./dist/img/'));
 });
 
+gulp.task('translations', function(){
+    var translations = {};
+    var outputFilename = './dist/translations.json';
+    _.forEach(content, function (item, index) {
+        translations[item.title] = item.title;
+        translations[item.description] = item.description;
+        if(item.url.localise){
+            translations[item.url.value] = item.url.value;
+        }
+    });
+    fs.writeFile(outputFilename, JSON.stringify(translations, null, 4), function (err) {
+        if (err) {
+            console.log(err);
+        } else {
+            console.log("JSON saved to " + outputFilename);
+        }
+    });
+});
+
 gulp.task('resize', function () {
     var promises = [];
     var contentResizedImages = [];
@@ -72,7 +91,7 @@ gulp.task('resize', function () {
 
     return Q.all(promises).then(function () {
         var outputFilename = './src/config/content_resized.json';
-        fs.writeFile(outputFilename, JSON.stringify(content, null, 4), function (err) {
+        fs.writeFile(outputFilename, JSON.stringify(contentResizedImages, null, 4), function (err) {
             if (err) {
                 console.log(err);
             } else {
@@ -94,6 +113,7 @@ gulp.task('build', function (callback) {
         'copy',
         'browserify',
         'inlinesource',
+        'translations',
         callback);
 });
 
