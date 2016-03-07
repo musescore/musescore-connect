@@ -21,19 +21,18 @@ module.exports = function (item) {
     }
     description = description ? convertHTML(description) : '';
 
-    return h('a.content',
-        {
-            href: url,
-            "onclick": function () {
-                Cookies.set(item.id, item.id, {expires: item.ttl});
-            }
-        },
+    return h('div.content',
         [
-            h('div.spotlight-title', title),
-            h('div.spotlight-image', h('img.', {
-                    src: item.image
+            h('a', {
+                href: url,
+                "onclick": function () {
+                    Cookies.set(item.id, item.id, {expires: item.ttl});
                 }
-            )),
-            h('div.spotlight-body',description)]
+            }, [
+                h('div.spotlight-title', title),
+                h('div.spotlight-image', h('img.', {src: item.image}))
+            ]),
+            h('div.spotlight-body', description)
+        ]
     );
 };
