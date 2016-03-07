@@ -38,6 +38,7 @@ gulp.task('browserify', function () {
 });
 
 gulp.task('featured', function () {
+
     var promises = [];
     var JsonDefer = Q.defer();
     var filename = 'src/config/featured.json';
@@ -51,7 +52,6 @@ gulp.task('featured', function () {
                 _.forEach(content, function (score, index) {
                     var defer = Q.defer();
                     promises.push(defer.promise);
-
                     var cleanItem = {};
                     cleanItem.nonTranslatable = true;
                     cleanItem.id = score.id;
@@ -61,7 +61,6 @@ gulp.task('featured', function () {
                         localise: false
                     };
                     cleanItem.description = '<a href="'+ score.user.custom_url +'">' + score.user.username + '</a>';
-
                     var imageUrl = 'https://s3.amazonaws.com/static.musescore.com/' + score.id + '/' + score.secret + '/score_0.png';
                     var n = imageUrl.lastIndexOf('.');
                     var d = imageUrl.lastIndexOf('/');
@@ -96,9 +95,9 @@ gulp.task('featured', function () {
                             console.log(err);
                         } else {
                             console.log("JSON saved to " + outputFilename);
+                            JsonDefer.resolve();
                         }
                     });
-                    JsonDefer.resolve();
                 });
             });
         });
