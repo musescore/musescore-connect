@@ -24,7 +24,9 @@ gulp.task('inlinesource', function () {
         .pipe(gulp.dest('./dist'));
 });
 gulp.task('clean', function () {
+    rmDir('./src/generated');
     rmDir('./img');
+    mkpath('./src/generated');
     mkpath('./img');
 });
 // Fonts
@@ -38,10 +40,9 @@ gulp.task('browserify', function () {
 });
 
 gulp.task('featured', function () {
-
     var promises = [];
     var JsonDefer = Q.defer();
-    var filename = 'src/config/featured.json';
+    var filename = 'src/generated/featured.json';
     var featured_clean = [];
     var uri = 'https://api.musescore.com/services/rest/score.json?oauth_consumer_key=' + process.env.MUSESCORE_API_KEY;
     if (process.env.MUSESCORE_API_KEY) {
@@ -89,7 +90,7 @@ gulp.task('featured', function () {
 
                 });
                 Q.all(promises).then(function () {
-                    var outputFilename = './src/config/featured_clean.json';
+                    var outputFilename = './src/generated/featured_clean.json';
                     fs.writeFile(outputFilename, JSON.stringify(featured_clean, null, 4), function (err) {
                         if (err) {
                             console.log(err);
@@ -99,6 +100,7 @@ gulp.task('featured', function () {
                         }
                     });
                 });
+
             });
         });
     }
@@ -164,7 +166,7 @@ gulp.task('content', function () {
     });
 
     return Q.all(promises).then(function () {
-        var outputFilename = './src/config/content_clean.json';
+        var outputFilename = './src/generated/content_clean.json';
         fs.writeFile(outputFilename, JSON.stringify(contentResizedImages, null, 4), function (err) {
             if (err) {
                 console.log(err);

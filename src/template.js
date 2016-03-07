@@ -11,7 +11,6 @@ module.exports = function (item) {
     var url = item.url.value;
     var description = item.description;
     var title = item.title;
-    console.log(item.nonTranslatable);
     if (window.Transifex && !item.nonTranslatable) {
 
         if (item.url.localise) {
@@ -20,6 +19,8 @@ module.exports = function (item) {
         description = Transifex.live.translateText(item.description);
         title = Transifex.live.translateText(item.title);
     }
+    description = description ? convertHTML(description) : '';
+
     return h('a.content',
         {
             href: url,
@@ -33,6 +34,6 @@ module.exports = function (item) {
                     src: item.image
                 }
             )),
-            h('div.spotlight-body', convertHTML(description))]
+            h('div.spotlight-body',description)]
     );
 };

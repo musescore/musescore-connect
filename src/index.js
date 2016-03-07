@@ -1,5 +1,5 @@
-var content = require('./config/content_clean.json');
-var featured = require('./config/featured_clean.json');
+var content = require('./generated/content_clean.json');
+var featured = require('./generated/featured_clean.json');
 var Cookies = require('js-cookie');
 var template = require('./template');
 var mainLoop = require("main-loop");
@@ -16,6 +16,7 @@ var constructor = function (container, outerContainer) {
     });
 
     var items = featured.concat(content);
+    console.log(items);
     if (!initState) {
         initState = 0;
     }
@@ -26,7 +27,6 @@ var constructor = function (container, outerContainer) {
         diff: require("virtual-dom/diff"),
         patch: require("virtual-dom/patch")
     });
-
 
     var hovering = false;
 
@@ -48,7 +48,6 @@ var constructor = function (container, outerContainer) {
                 ])
             ])
     }
-
 
     function next() {
         var newState = parseInt(loop.state) + 1;
