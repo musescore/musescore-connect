@@ -11,6 +11,8 @@ module.exports = function (item) {
     var url = item.url.value;
     var description = item.description;
     var title = item.title;
+    var length = 50;
+
     if (window.Transifex && !item.nonTranslatable) {
 
         if (item.url.localise) {
@@ -20,6 +22,7 @@ module.exports = function (item) {
         title = Transifex.live.translateText(item.title);
     }
     description = description ? convertHTML(description) : '';
+    title = title.length > length ? title.substring(0, length) + '...' : title.substring(0, length);
 
     return h('div.content',
         [

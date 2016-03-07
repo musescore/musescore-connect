@@ -16,7 +16,6 @@ var constructor = function (container, outerContainer) {
     });
 
     var items = featured.concat(content);
-    console.log(items);
     if (!initState) {
         initState = 0;
     }
