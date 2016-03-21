@@ -12,7 +12,7 @@
   {
     "id": "musescore-in-minutes-1",
     "title": "MuseScore in Minutes",
-    "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
+    "image": "http://s3.amazonaws.com/connect2.musescore.com/files/musescore-in-minutes.jpg",
     "url": {
       "value": "https://www.youtube.com/watch?v=YZ4kRzkHroU&list=PLTYuWi2LmaPGb4SKXHm9JULQ-0CH8KpUk",
       "localise": false
@@ -23,7 +23,7 @@
   {
     "id": "musescore-in-minutes-2",
     "title": "MuseScore in Minutes",
-    "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
+    "image": "http://s3.amazonaws.com/connect2.musescore.com/files/musescore-in-minutes.jpg",
     "url": {
       "value": "https://www.youtube.com/watch?v=GjqYzjTCS4g&list=PLTYuWi2LmaPGb4SKXHm9JULQ-0CH8KpUk",
       "localise": false
@@ -36,7 +36,7 @@
     "title": "MuseScore in Minutes",
     "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
     "url": {
-      "value": "https://www.youtube.com/watch?v=nJSQCgqUZuM&list=PLTYuWi2LmaPGb4SKXHm9JULQ-0CH8KpUk",
+      "value": "http://s3.amazonaws.com/connect2.musescore.com/files/musescore-in-minutes.jpg",
       "localise": false
     },
     "description": "Lesson 3 - Note Input",
@@ -47,87 +47,10 @@
     "title": "MuseScore in Minutes",
     "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
     "url": {
-      "value": "https://www.youtube.com/watch?v=IZ1b1aF9lpg&list=PLTYuWi2LmaPGb4SKXHm9JULQ-0CH8KpUk",
+      "value": "http://s3.amazonaws.com/connect2.musescore.com/files/musescore-in-minutes.jpg",
       "localise": false
     },
     "description": "Lesson 4 - MIDI Keyboard Input",
     "ttl": 630720000
   },
-  {
-    "id": "musescore-in-minutes-5",
-    "title": "MuseScore in Minutes",
-    "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
-    "url": {
-      "value": "https://www.youtube.com/watch?v=-htkF5RB17g&list=PLTYuWi2LmaPGb4SKXHm9JULQ-0CH8KpUk",
-      "localise": false
-    },
-    "description": "Lesson 5 - More Input Ideas",
-    "ttl": 630720000
-  },
-  {
-    "id": "musescore-in-minutes-6",
-    "title": "MuseScore in Minutes",
-    "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
-    "url": {
-      "value": "https://www.youtube.com/watch?v=8nglDCxzfeA&list=PLTYuWi2LmaPGb4SKXHm9JULQ-0CH8KpUk",
-      "localise": false
-    },
-    "description": "Lesson 6 - Text, Lyrics and Chords",
-    "ttl": 630720000
-  },
-  {
-    "id": "musescore-in-minutes-7",
-    "title": "MuseScore in Minutes",
-    "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
-    "url": {
-      "value": "https://www.youtube.com/watch?v=wnXLaZW9uA8&list=PLTYuWi2LmaPGb4SKXHm9JULQ-0CH8KpUk",
-      "localise": false
-    },
-    "description": "Lesson 7 - Tablature and Drum Notation",
-    "ttl": 630720000
-  },
-  {
-    "id": "musescore-in-minutes-8",
-    "title": "MuseScore in Minutes",
-    "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
-    "url": {
-      "value": "https://www.youtube.com/watch?v=mHGZ47pwuB8&list=PLTYuWi2LmaPGb4SKXHm9JULQ-0CH8KpUk",
-      "localise": false
-    },
-    "description": "Lesson 8 - Repeats and Endings, Part 1",
-    "ttl": 630720000
-  },
-  {
-    "id": "musescore-in-minutes-9",
-    "title": "MuseScore in Minutes",
-    "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
-    "url": {
-      "value": "https://www.youtube.com/watch?v=07uPDU11Gi4&list=PLTYuWi2LmaPGb4SKXHm9JULQ-0CH8KpUk",
-      "localise": false
-    },
-    "description": "Lesson 9 - Repeats and Endings, Part 2",
-    "ttl": 630720000
-  },
-  {
-    "id": "musescore-in-minutes-10",
-    "title": "MuseScore in Minutes",
-    "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
-    "url": {
-      "value": "https://www.youtube.com/watch?v=KnoKgja20fg&list=PLTYuWi2LmaPGb4SKXHm9JULQ-0CH8KpUk",
-      "localise": false
-    },
-    "description": "Lesson 10 - Articulations, Dynamics and Text",
-    "ttl": 630720000
-  },
-  {
-    "id": "musescore-in-minutes-11",
-    "title": "MuseScore in Minutes",
-    "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
-    "url": {
-      "value": "https://www.youtube.com/watch?v=6OrSmHrDQg0&list=PLTYuWi2LmaPGb4SKXHm9JULQ-0CH8KpUk",
-      "localise": false
-    },
-    "description": "Lesson 11 - Layout and Parts",
-    "ttl": 630720000
-  }
 ]
