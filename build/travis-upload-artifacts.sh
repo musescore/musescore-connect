@@ -1,6 +1,10 @@
 #!/bin/bash
 
-export ARTIFACTS_TARGET_PATHS=beta
+if [ -n "$TRAVIS_TAG" ]; then
+    export ARTIFACTS_TARGET_PATHS=
+else
+    export ARTIFACTS_TARGET_PATHS=beta
+fi
 
 export TRAVIS_BUILD_DIR=
 export ARTIFACTS_PATHS=dist/
