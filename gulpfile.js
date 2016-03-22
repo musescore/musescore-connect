@@ -70,24 +70,27 @@ gulp.task('featured', function () {
                     var imageFilename = './img/' + score.id + '.' + ext;
                     download(imageUrl, imageFilename, function (buffer) {
                         lwip.open(imageFilename, ext, function (err, image) {
-                            lwip.create(image.width(), image.height(), 'white', function (err, canvas) {
-                                // paste original image on top of the canvas
-                                canvas.paste(0, 0, image, function (err, image) {
-                                    var width = 160;
-                                    var height = 160 * image.height() / image.width();
-                                    image.batch()
-                                        .resize(width, height)
-                                        .writeFile('./img/' + score.id + '_' + name + '_small.jpg', 'jpg', {quality: 75}, function (err) {
-                                            cleanItem.image = 'img/' + score.id + '_' + name + '_small.jpg';
-                                            featured_clean.push(cleanItem);
-                                            defer.resolve();
-                                        });
-                                    fs.unlink(imageFilename);
+                            if(image){
+                                lwip.create(image.width(), image.height(), 'white', function (err, canvas) {
+                                    // paste original image on top of the canvas
+                                    canvas.paste(0, 0, image, function (err, image) {
+                                        var width = 160;
+                                        var height = 160 * image.height() / image.width();
+                                        image.batch()
+                                            .resize(width, height)
+                                            .writeFile('./img/' + score.id + '_' + name + '_small.jpg', 'jpg', {quality: 75}, function (err) {
+                                                cleanItem.image = 'img/' + score.id + '_' + name + '_small.jpg';
+                                                featured_clean.push(cleanItem);
+                                                defer.resolve();
+                                            });
+                                        fs.unlink(imageFilename);
+                                    });
                                 });
-                            });
+                            } else {
+                                defer.resolve();
+                            }
                         });
                     });
-
                 });
                 Q.all(promises).then(function () {
                     var outputFilename = './src/generated/featured_clean.json';
