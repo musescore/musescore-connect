@@ -7,7 +7,7 @@
       "value": "http://static.musescore.com/792126/8ca14ebe5f/score.mscz",
       "localise": true
     },
-    "description": "Free worksheet to get started",
+    "description": "Learn using MuseScore",
     "ttl": 630720000
   },
   {
@@ -18,7 +18,7 @@
       "value": "https://www.youtube.com/watch?v=YZ4kRzkHroU&list=PLTYuWi2LmaPGb4SKXHm9JULQ-0CH8KpUk",
       "localise": false
     },
-    "description": "by Dr. George Hess",
+    "description": "By Dr. George Hess",
     "ttl": 630720000
   },
   {
@@ -26,10 +26,10 @@
     "title": "The Ultimate Guidebook",
     "image": "http://s3.amazonaws.com/connect2.musescore.com/files/mastering-musescore-connect.jpg",
     "url": {
-      "value": "http://d2vqzyfs37wg2j.cloudfront.net/mastering-musescore.html",
+      "value": "http://amzn.to/1UCWF8e",
       "localise": false
     },
-    "description": "Mastering MuseScore<br/> by Marc Sabatella",
+    "description": "By Marc Sabatella",
     "ttl": 630720000
   }
 ]
