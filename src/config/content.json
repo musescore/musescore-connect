@@ -11,7 +11,7 @@
     "ttl": 630720000
   },
   {
-    "id": "musescore-in-minutes-1",
+    "id": "musescore-in-minutes",
     "title": "MuseScore in Minutes",
     "image": "http://s3.amazonaws.com/connect2.musescore.com/files/musescore-in-minutes.jpg",
     "url": {
