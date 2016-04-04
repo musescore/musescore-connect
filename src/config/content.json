@@ -7,50 +7,29 @@
       "value": "http://static.musescore.com/792126/8ca14ebe5f/score.mscz",
       "localise": true
     },
+    "description": "Free worksheet to get started",
     "ttl": 630720000
   },
   {
     "id": "musescore-in-minutes-1",
     "title": "MuseScore in Minutes",
-    "image": "http://s3.amazonaws.com/connect2.musescore.com/files/musescore-in-minutes.jpg",
+    "image": "http://d2vqzyfs37wg2j.cloudfront.net/files/musescore-in-minutes.jpg",
     "url": {
       "value": "https://www.youtube.com/watch?v=YZ4kRzkHroU&list=PLTYuWi2LmaPGb4SKXHm9JULQ-0CH8KpUk",
       "localise": false
     },
-    "description": "Lesson 1 - Score Setup",
+    "description": "by Dr. George Hess",
     "ttl": 630720000
   },
   {
-    "id": "musescore-in-minutes-2",
-    "title": "MuseScore in Minutes",
-    "image": "http://s3.amazonaws.com/connect2.musescore.com/files/musescore-in-minutes.jpg",
+    "id": "mastering-musescore",
+    "title": "The Ultimate Guidebook",
+    "image": "http://d2vqzyfs37wg2j.cloudfront.net/files/mastering-musescore.jpg",
     "url": {
-      "value": "https://www.youtube.com/watch?v=GjqYzjTCS4g&list=PLTYuWi2LmaPGb4SKXHm9JULQ-0CH8KpUk",
+      "value": "http://d2vqzyfs37wg2j.cloudfront.net/mastering-musescore.html",
       "localise": false
     },
-    "description": "Lesson 2 - Working with MuseScore",
-    "ttl": 630720000
-  },
-  {
-    "id": "musescore-in-minutes-3",
-    "title": "MuseScore in Minutes",
-    "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
-    "url": {
-      "value": "http://s3.amazonaws.com/connect2.musescore.com/files/musescore-in-minutes.jpg",
-      "localise": false
-    },
-    "description": "Lesson 3 - Note Input",
-    "ttl": 630720000
-  },
-  {
-    "id": "musescore-in-minutes-4",
-    "title": "MuseScore in Minutes",
-    "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
-    "url": {
-      "value": "http://s3.amazonaws.com/connect2.musescore.com/files/musescore-in-minutes.jpg",
-      "localise": false
-    },
-    "description": "Lesson 4 - MIDI Keyboard Input",
+    "description": "Mastering MuseScore<br/> by Marc Sabatella",
     "ttl": 630720000
   }
 ]
