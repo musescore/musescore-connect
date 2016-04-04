@@ -188,8 +188,8 @@ gulp.task('watchify', function () {
 gulp.task('build', function (callback) {
     runSequence(
         'clean',
-        'featured',
         'content',
+        'featured',
         'copy',
         'browserify',
         'inlinesource',
