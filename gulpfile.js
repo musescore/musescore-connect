@@ -44,7 +44,8 @@ gulp.task('featured', function () {
     var JsonDefer = Q.defer();
     var filename = 'src/generated/featured.json';
     var featured_clean = [];
-    var uri = 'https://api.musescore.com/services/rest/score.json?featured=1&oauth_consumer_key=' + process.env.MUSESCORE_API_KEY;
+    var timestamp = new Date().getTime();
+    var uri = 'https://api.musescore.com/services/rest/score.json?featured=1&no_cache=' + timestamp + '&oauth_consumer_key=' + process.env.MUSESCORE_API_KEY;
     if (process.env.MUSESCORE_API_KEY) {
         request.head(uri, function (err, res, body) {
             request(uri).pipe(fs.createWriteStream(filename)).on('close', function () {
