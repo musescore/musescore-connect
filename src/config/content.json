@@ -13,7 +13,7 @@
   {
     "id": "musescore-in-minutes-1",
     "title": "MuseScore in Minutes",
-    "image": "http://d2vqzyfs37wg2j.cloudfront.net/files/musescore-in-minutes.jpg",
+    "image": "http://s3.amazonaws.com/connect2.musescore.com/files/musescore-in-minutes.jpg",
     "url": {
       "value": "https://www.youtube.com/watch?v=YZ4kRzkHroU&list=PLTYuWi2LmaPGb4SKXHm9JULQ-0CH8KpUk",
       "localise": false
@@ -24,7 +24,7 @@
   {
     "id": "mastering-musescore",
     "title": "The Ultimate Guidebook",
-    "image": "http://d2vqzyfs37wg2j.cloudfront.net/files/mastering-musescore.jpg",
+    "image": "http://s3.amazonaws.com/connect2.musescore.com/files/mastering-musescore-connect.jpg",
     "url": {
       "value": "http://d2vqzyfs37wg2j.cloudfront.net/mastering-musescore.html",
       "localise": false
