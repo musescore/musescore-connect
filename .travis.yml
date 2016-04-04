@@ -20,7 +20,6 @@ cache:
 before_script:
   - "artifacts -v || curl -sL https://raw.githubusercontent.com/meatballhat/artifacts/master/install | bash"
 script:
-  - gulp browserify
   - npm run build
 after_script:
   - ./build/travis-upload-artifacts.sh

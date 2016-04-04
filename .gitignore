@@ -3,5 +3,3 @@ node_modules
 dist
 bower_components
 src/generated
-img/
-src/bundle.js
