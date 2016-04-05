@@ -27,8 +27,8 @@
 
 </script>
 <script>
-    var searchSubmit = document.getElementById('search-submit');
-    searchSubmit.addEventListener("click", function () {
+    var searchSubmit = document.getElementById('search-form');
+    searchSubmit.addEventListener("submit", function (event) {
         event.preventDefault();
         var searchText = document.getElementById('search-text');
         if (searchText.value != "") {
