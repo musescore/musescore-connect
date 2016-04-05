@@ -204,7 +204,7 @@ gulp.task('watch', ['watchify']);
 function build() {
     var bundler = browserify('./src/index.js', {fullPaths: false});
     bundler.on('log', util.log.bind(util));
-    bundler.bundle()
+    return bundler.bundle()
         .on('error', util.log)
         .pipe(source('bundle.js'))
         .pipe(buffer())
@@ -252,3 +252,4 @@ function rmDir(dirPath) {
         }
     fs.rmdirSync(dirPath);
 }
+
