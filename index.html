@@ -8,11 +8,9 @@
 <body>
 <div id="page">
     <div class="spotlight-title" ><a href="https://musescore.com/">ONLINE COMMUNITY</a></div>
-    <form class="search txlive" action="https://musescore.com/sheetmusic"
-          accept-charset="UTF-8"
-          method="get">
-        <input name="text" type="text" placeholder="Find sheet music ...">
-        <button type="submit" >Search<span class="icon-search"></span></button>
+    <form class="search txlive" action="https://musescore.com/sheetmusic" accept-charset="UTF-8" method="get" id="search-form">
+        <input name="text" type="text" placeholder="Find sheet music ..." id="search-text">
+        <button type="submit" >Search<span class="icon-search" id="search-submit"></span></button>
     </form>
     <div class="border"></div>
     <div id="container">
@@ -27,6 +25,22 @@
     ga('create', 'UA-11896755-10', 'auto');
     ga('send', 'pageview');
 
+</script>
+<script>
+    var searchSubmit = document.getElementById('search-submit');
+    searchSubmit.addEventListener("click", function () {
+        event.preventDefault();
+        var searchText = document.getElementById('search-text');
+        if (searchText.value != "") {
+          var url = document.getElementById('search-form').action + '?text=' + encodeURIComponent(searchText.value);
+          if (typeof(mscore) == 'undefined') {
+            window.location = url;
+          }
+          else {
+            mscore.openExternalLink(url);
+          }
+        }
+    });
 </script>
 <link rel="stylesheet" type="text/css" href="src/style.css" inline>
 <script src="src/bundle.js" inline></script>
