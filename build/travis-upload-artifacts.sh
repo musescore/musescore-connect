@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -n "$TRAVIS_TAG" ]; then
-    export ARTIFACTS_TARGET_PATHS=""
+    export ARTIFACTS_TARGET_PATHS=":beta"
 else
     export ARTIFACTS_TARGET_PATHS=beta
 fi
