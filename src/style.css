@@ -100,22 +100,20 @@ img {
     padding: 7.5px 20px;
     outline: 0;
 }
-.search input::-moz-focus-inner { 
-  border: 0; 
-}
 
 .search button {
     border: none;
     padding: 0;
     border-left: 1px solid #ccc;
     position: absolute;
-    top: 0px;
+    top: -1px;
     right: 0px;
     cursor: pointer;
     font-size: 0;
     width: 30px;
     height: 30px;
     background: #F7F7F7;
+    outline: 0;
 }
 .search .icon-search{
     font-size: 20px;
