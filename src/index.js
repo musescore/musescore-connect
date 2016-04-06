@@ -15,7 +15,7 @@ var constructor = function (container, outerContainer) {
         return !Cookies.get(item.id);
     });
 
-    var items = featured.concat(content);
+    var items = content.concat(featured);
     if (!initState) {
         initState = 0;
     }
