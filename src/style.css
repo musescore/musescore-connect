@@ -23,6 +23,7 @@ body {
 a {
     color: #3a80c6;
     text-decoration: none;
+    outline: 0px;
 }
 
 img {
