@@ -3,11 +3,29 @@ var featured = require('./generated/featured_clean.json');
 var Cookies = require('js-cookie');
 var template = require('./template');
 var mainLoop = require("main-loop");
+var i18next = require('i18next');
+var XHR = require('i18next-xhr-backend');
 var h = require('virtual-dom/h');
 var _ = {
     findKey: require("lodash.findkey"),
     merge: require("lodash.merge")
 };
+document.addEventListener("DOMContentLoaded", function () {
+    var container = document.getElementById('container');
+    var page = document.getElementById('page');
+
+    i18next
+        .use(XHR)
+        .init({
+            lng: 'nl',
+            backend: {
+                loadPath: '/src/translations/{{lng}}.json'
+            }
+        }, function () {
+            constructor(container, page)
+        });
+});
+
 
 var constructor = function (container, outerContainer) {
 
@@ -32,7 +50,7 @@ var constructor = function (container, outerContainer) {
     function render(index) {
         return h('div',
             [
-                template(items[index]),
+                template(items[index], i18next),
                 h('div.navigation', [
                     h('span.prev', {
                         "onclick": function () {
@@ -74,7 +92,7 @@ var constructor = function (container, outerContainer) {
         hovering = false;
     };
     createInterval();
-    function createInterval(){
+    function createInterval() {
         clearInterval(interval);
         interval = setInterval(function () {
             if (!hovering) {
@@ -83,10 +101,6 @@ var constructor = function (container, outerContainer) {
         }, loopSpeed);
     }
 
-
     container.appendChild(loop.target);
-
 };
-
-window.connectApp = constructor;
 

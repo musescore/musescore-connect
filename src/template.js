@@ -6,21 +6,18 @@ var convertHTML = require('html-to-vdom')({
     VNode: VNode,
     VText: VText
 });
-var Cookies = require('js-cookie');
-module.exports = function (item) {
+
+
+module.exports = function (item, i18next) {
+
     var url = item.url.value;
-    var description = item.description;
-    var title = item.title;
     var length = 50;
-
-    if (window.Transifex && !item.nonTranslatable) {
-
-        if (item.url.localise) {
-            url = Transifex.live.translateText(item.url.value);
-        }
-        description = Transifex.live.translateText(item.description);
-        title = Transifex.live.translateText(item.title);
+    if (item.url.localise) {
+        url = i18next.t(item.url.value.replace(/[^a-z0-9 ]/gi, '').replace(/[ ]/g, '_').toLowerCase(), {defaultValue: item.url.value});
     }
+    var description = i18next.t(item.description.replace(/[^a-z0-9 ]/gi, '').replace(/[ ]/g, '_').toLowerCase(), {defaultValue: item.description});
+    var title = i18next.t(item.title.replace(/[^a-z0-9 ]/gi, '').replace(/[ ]/g, '_').toLowerCase(), {defaultValue: item.title});
+
     description = description ? convertHTML(description) : '';
     title = title.length > length ? title.substring(0, length) + '...' : title.substring(0, length);
 

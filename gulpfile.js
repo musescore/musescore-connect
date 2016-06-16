@@ -1,5 +1,4 @@
 var gulp = require('gulp');
-var yargs = require('yargs');
 var watchify = require('watchify');
 var request = require('request');
 var browserify = require('browserify');
@@ -14,19 +13,30 @@ var Q = require('q');
 var content = require('./src/config/content.json');
 var fs = require('fs');
 var lwip = require('lwip');
+var Transifex = require("transifex");
 var _ = {
-    forEach: require('lodash.foreach')
+    forEach: require('lodash.foreach'),
+    map: require('lodash.map')
 };
+
+
+var transifex = new Transifex({
+    project_slug: "musescore",
+    credential: "frankbaele:frankbaele" // In the same format
+});
 
 gulp.task('inlinesource', function () {
     return gulp.src('./index.html')
         .pipe(inlinesource())
         .pipe(gulp.dest('./dist'));
 });
+
 gulp.task('clean', function () {
     rmDir('./src/generated');
+    rmDir('./src/translations');
     rmDir('./img');
     mkpath('./src/generated');
+    mkpath('./src/translations');
     mkpath('./img');
 });
 // Fonts
@@ -50,7 +60,7 @@ gulp.task('featured', function () {
         request.head(uri, function (err, res, body) {
             request(uri).pipe(fs.createWriteStream(filename)).on('close', function () {
                 var content = JSON.parse(fs.readFileSync(filename, 'utf8'));
-                content = content.slice(0,10);
+                content = content.slice(0, 10);
                 _.forEach(content, function (score, index) {
                     var defer = Q.defer();
                     promises.push(defer.promise);
@@ -62,7 +72,7 @@ gulp.task('featured', function () {
                         value: score.permalink,
                         localise: false
                     };
-                    cleanItem.description = '<a href="'+ score.user.custom_url +'">' + score.user.username + '</a>';
+                    cleanItem.description = '<a href="' + score.user.custom_url + '">' + score.user.username + '</a>';
                     var imageUrl = 'https://s3.amazonaws.com/static.musescore.com/' + score.id + '/' + score.secret + '/score_0.png';
                     var n = imageUrl.lastIndexOf('.');
                     var d = imageUrl.lastIndexOf('/');
@@ -71,7 +81,7 @@ gulp.task('featured', function () {
                     var imageFilename = './img/' + score.id + '.' + ext;
                     download(imageUrl, imageFilename, function (buffer) {
                         lwip.open(imageFilename, ext, function (err, image) {
-                            if(image){
+                            if (image) {
                                 lwip.create(image.width(), image.height(), 'white', function (err, canvas) {
                                     // paste original image on top of the canvas
                                     canvas.paste(0, 0, image, function (err, image) {
@@ -184,7 +194,27 @@ gulp.task('content', function () {
 gulp.task('watchify', function () {
     return bundle('main', 'bundle')
 });
+gulp.task('translations:get', function () {
+    transifex.projectInstanceMethods("musescore", function (err, data) {
+        _.forEach(data.teams, function (lang) {
+            transifex.translationStringsMethod("musescore", "start-center", lang, function (err, data) {
+                var cleanData = {};
+                _.forEach(JSON.parse(data), function (item) {
+                    cleanData[item.source_string.replace(/[^a-z0-9 ]/gi, '').replace(/[ ]/g, '_').toLowerCase()] = item.translation.length == 0 ? item.source_string : item.translation;
+                });
 
+                fs.writeFile('src/translations/' + lang + '.json', JSON.stringify(cleanData, null, 4), function (err) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        console.log("JSON saved to " + lang);
+                    }
+                });
+            });
+
+        });
+    });
+});
 
 gulp.task('build', function (callback) {
     runSequence(
@@ -195,6 +225,7 @@ gulp.task('build', function (callback) {
         'browserify',
         'inlinesource',
         'translations',
+        'translations:get',
         'fonts',
         callback);
 });
