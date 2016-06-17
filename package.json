@@ -35,7 +35,7 @@
     "i18next": "^3.2.0",
     "i18next-xhr-backend": "^0.6.0",
     "js-cookie": "^2.1.0",
-    "lodash.find": "^4.2.0",
+    "lodash.find": "^4.4.0",
     "lodash.findkey": "^4.2.0",
     "lodash.foreach": "^4.1.0",
     "lodash.map": "^4.4.0",

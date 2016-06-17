@@ -6,6 +6,7 @@ var transifex = new Transifex({
     project_slug: "musescore",
     credential: process.env.TRANSIFEX_USER + ":" + process.env.TRANSIFEX_PASSWORD
 });
+
 var Promise = require("bluebird");
 var fs = Promise.promisifyAll(require('fs'));
 
@@ -15,6 +16,8 @@ module.exports = function (gulp) {
             var files = [];
             //Without new Promise, this throwing will throw an actual exception
             transifex.projectInstanceMethods("musescore", function (err, data) {
+                fs.writeFile('translations/languageList.json', JSON.stringify(data.teams, null, 4));
+
                 _.forEach(data.teams, function (lang) {
                     files.push(new Promise(function (resolve) {
                         transifex.translationStringsMethod("musescore", "start-center", lang, function (err, data) {

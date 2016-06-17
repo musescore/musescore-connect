@@ -8,22 +8,38 @@ var XHR = require('i18next-xhr-backend');
 var h = require('virtual-dom/h');
 var _ = {
     findKey: require("lodash.findkey"),
-    merge: require("lodash.merge")
+    merge: require("lodash.merge"),
+    find: require("lodash.find")
 };
+var languages = require("../translations/languageList.json");
+console.log(languages);
 var language = window.navigator.userLanguage || window.navigator.language;
 language = language.replace('-', '_');
-
+var lang = _.find(languages, function (lang) {
+    return lang == language;
+});
+if (typeof lang == 'undefined') {
+    lang = _.find(languages, function (lang) {
+        return lang == language.substring(0, 2);
+    });
+}
+if (typeof lang == 'undefined') {
+    lang = _.find(languages, function (lang) {
+        return lang.substring(0, 2) == language.substring(0, 2);
+    });
+}
+// ignore en_US
+lang = lang == 'en_US' ? undefined : lang;
 document.addEventListener("DOMContentLoaded", function () {
     var container = document.getElementById('container');
     var page = document.getElementById('page');
-
     i18next
         .use(XHR)
         .init({
             debug: false,
             load: 'currentOnly',
-            lng: language,
-            preload: [language],
+            lngs: [lang],
+            preload: [lang],
             fallbackLng: undefined,
             backend: {
                 loadPath: 'translations/{{lng}}.json'
