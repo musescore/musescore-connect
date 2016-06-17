@@ -6,10 +6,9 @@ var convertHTML = require('html-to-vdom')({
     VNode: VNode,
     VText: VText
 });
-
+var Cookies = require('js-cookie');
 
 module.exports = function (item, i18next) {
-
     var url = item.url.value;
     var length = 50;
     if (item.url.localise) {

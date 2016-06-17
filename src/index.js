@@ -10,6 +10,8 @@ var _ = {
     findKey: require("lodash.findkey"),
     merge: require("lodash.merge")
 };
+var language = window.navigator.userLanguage || window.navigator.language;
+
 document.addEventListener("DOMContentLoaded", function () {
     var container = document.getElementById('container');
     var page = document.getElementById('page');
@@ -17,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
     i18next
         .use(XHR)
         .init({
-            lng: 'nl',
+            lng: language,
             backend: {
                 loadPath: 'translations/{{lng}}.json'
             }
