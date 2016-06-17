@@ -118,7 +118,9 @@ img {
 }
 .search .icon-search{
     font-size: 20px;
-    color: #555555;
+    PADDING-TOP: 4PX;
+    color: #555;
+    height: 100%;
     display: block;
 }
 .search button:hover {
