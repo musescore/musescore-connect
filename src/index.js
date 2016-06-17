@@ -12,7 +12,6 @@ var _ = {
     find: require("lodash.find")
 };
 var languages = require("../translations/languageList.json");
-console.log(languages);
 var language = window.navigator.userLanguage || window.navigator.language;
 language = language.replace('-', '_');
 var lang = _.find(languages, function (lang) {
