@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .init({
             lng: 'nl',
             backend: {
-                loadPath: '/translations/{{lng}}.json'
+                loadPath: 'translations/{{lng}}.json'
             }
         }, function () {
             constructor(container, page)
