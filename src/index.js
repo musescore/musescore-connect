@@ -11,6 +11,7 @@ var _ = {
     merge: require("lodash.merge")
 };
 var language = window.navigator.userLanguage || window.navigator.language;
+language = language.replace('-', '_');
 
 document.addEventListener("DOMContentLoaded", function () {
     var container = document.getElementById('container');
@@ -19,7 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
     i18next
         .use(XHR)
         .init({
+            debug: false,
+            load: 'currentOnly',
             lng: language,
+            preload: [language],
+            fallbackLng: undefined,
             backend: {
                 loadPath: 'translations/{{lng}}.json'
             }
