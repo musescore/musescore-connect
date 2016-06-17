@@ -28,7 +28,6 @@ module.exports = function (gulp) {
                                         console.log(err);
                                     } else {
                                         resolve();
-                                        console.log("JSON saved to " + lang);
                                     }
                                 }
                             );
