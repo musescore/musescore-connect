@@ -27,6 +27,9 @@
     "watchify": "^3.6.1"
   },
   "dependencies": {
+    "bluebird": "^3.4.0",
+    "empty-dir": "^0.2.0",
+    "fs-extra": "^0.30.0",
     "graceful-fs": "^4.1.4",
     "html-to-vdom": "^0.7.0",
     "i18next": "^3.2.0",
@@ -38,7 +41,9 @@
     "lodash.map": "^4.4.0",
     "lodash.merge": "^4.3.2",
     "main-loop": "^3.2.0",
+    "node-fs-extra": "^0.8.1",
     "node-notifier": "^4.5.0",
+    "request": "^2.72.0",
     "transifex": "^1.4.4",
     "virtual-dom": "^2.1.1"
   }
