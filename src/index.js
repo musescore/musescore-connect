@@ -115,11 +115,11 @@ var constructor = function (container, outerContainer) {
     };
     createInterval();
     function createInterval() {
-        clearInterval(interval);
-        interval = setInterval(function () {
+        setTimeout(function () {
             if (!hovering) {
                 next();
             }
+            window.requestAnimationFrame(createInterval)
         }, loopSpeed);
     }
 
