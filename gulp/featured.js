@@ -47,11 +47,11 @@ module.exports = function(gulp){
                                     lwip.create(image.width(), image.height(), 'white', function (err, canvas) {
                                         // paste original image on top of the canvas
                                         canvas.paste(0, 0, image, function (err, image) {
-                                            var width = 160;
-                                            var height = 160 * image.height() / image.width();
+                                            var width = 140;
+                                            var height = 140 * image.height() / image.width();
                                             image.batch()
                                                 .resize(width, height)
-                                                .writeFile('./img/' + score.id + '_' + name + '_small.jpg', 'jpg', {quality: 60}, function (err) {
+                                                .writeFile('./img/' + score.id + '_' + name + '_small.jpg', 'jpg', {quality: 65}, function (err) {
                                                     cleanItem.image = 'img/' + score.id + '_' + name + '_small.jpg';
                                                     featured_clean.push(cleanItem);
                                                     defer.resolve();

@@ -27,11 +27,11 @@ module.exports = function(gulp){
                         // paste original image on top of the canvas
                         canvas.paste(0, 0, image, function (err, image) {
                             // now image has a white background...
-                            var width = 160;
-                            var height = 160 * image.height() / image.width();
+                            var width = 140;
+                            var height = 140 * image.height() / image.width();
                             image.batch()
                                 .resize(width, height)
-                                .writeFile('./img/' + name + '_small.jpg', 'jpg', {quality: 60}, function (err) {
+                                .writeFile('./img/' + name + '_small.jpg', 'jpg', {quality: 65}, function (err) {
                                     item.image = 'img/' + name + '_small.jpg';
                                     contentResizedImages[index] = item;
                                     defer.resolve();
