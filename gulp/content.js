@@ -31,7 +31,7 @@ module.exports = function(gulp){
                             var height = 160 * image.height() / image.width();
                             image.batch()
                                 .resize(width, height)
-                                .writeFile('./img/' + name + '_small.jpg', 'jpg', {quality: 75}, function (err) {
+                                .writeFile('./img/' + name + '_small.jpg', 'jpg', {quality: 60}, function (err) {
                                     item.image = 'img/' + name + '_small.jpg';
                                     contentResizedImages[index] = item;
                                     defer.resolve();

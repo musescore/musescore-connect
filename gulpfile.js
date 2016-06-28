@@ -20,14 +20,17 @@ gulp.task('copy:fonts', function () {
     return gulp.src(['src/fonts/*'])
         .pipe(gulp.dest('dist/fonts/'));
 });
+
 gulp.task('copy:img', function () {
     return gulp.src(['./img/*'])
         .pipe(gulp.dest('./dist/img/'));
 });
+
 gulp.task('copy:trans', function () {
     return gulp.src(['./translations/*'])
         .pipe(gulp.dest('./dist/translations/'));
 });
+
 gulp.task('build', function (callback) {
     runSequence(
         'clean',

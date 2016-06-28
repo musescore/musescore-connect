@@ -51,7 +51,7 @@ module.exports = function(gulp){
                                             var height = 160 * image.height() / image.width();
                                             image.batch()
                                                 .resize(width, height)
-                                                .writeFile('./img/' + score.id + '_' + name + '_small.jpg', 'jpg', {quality: 75}, function (err) {
+                                                .writeFile('./img/' + score.id + '_' + name + '_small.jpg', 'jpg', {quality: 60}, function (err) {
                                                     cleanItem.image = 'img/' + score.id + '_' + name + '_small.jpg';
                                                     featured_clean.push(cleanItem);
                                                     defer.resolve();
