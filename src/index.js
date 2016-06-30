@@ -60,7 +60,6 @@ var constructor = function (container, outerContainer) {
         initState = 0;
     }
     var loopSpeed = 10000;
-    var interval;
     var loop = mainLoop(initState, render, {
         create: require("virtual-dom/create-element"),
         diff: require("virtual-dom/diff"),
@@ -94,7 +93,6 @@ var constructor = function (container, outerContainer) {
             newState = 0;
         }
         loop.update(newState);
-        createInterval();
     }
 
     function prev() {
@@ -104,7 +102,6 @@ var constructor = function (container, outerContainer) {
             newState = items.length - 1;
         }
         loop.update(newState);
-        createInterval();
     }
 
     outerContainer.onmouseover = function (e) {
