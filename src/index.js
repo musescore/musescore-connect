@@ -13,10 +13,13 @@ var _ = {
 };
 var languages = require("../translations/languageList.json");
 var language = window.navigator.userLanguage || window.navigator.language;
+
 language = language.replace('-', '_');
+
 var lang = _.find(languages, function (lang) {
     return lang == language;
 });
+
 if (typeof lang == 'undefined') {
     lang = _.find(languages, function (lang) {
         return lang == language.substring(0, 2);
@@ -37,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .init({
             debug: false,
             load: 'currentOnly',
-            lngs: [lang],
+            lng: lang,
             preload: [lang],
             fallbackLng: undefined,
             backend: {
