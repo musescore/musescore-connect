@@ -1,0 +1,17 @@
+{
+  "appendContent": false,
+  "id": "ja",
+  "content": [
+    {
+      "id": "getting-started",
+      "title": "Learn MuseScore",
+      "image": "https://s3.amazonaws.com/s.musescore.com/connect/Screenshot+2016-07-06+22.07.33.png",
+      "url": {
+        "value": "https://www.youtube.com/watch?v=gnQz0245uj4&list=PL2uxwe5uztBC6jhHpuSe458guERJ5ciDy",
+        "localise": false
+      },
+      "description": "Video tutorial series by Yamamoto Kazuma",
+      "ttl": 500
+    }
+  ]
+}
