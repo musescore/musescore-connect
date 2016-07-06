@@ -1,5 +1,6 @@
 var content = require('./generated/content_clean.json');
 var featured = require('./generated/featured_clean.json');
+var localisedContent = require('./generated/content_localised.json');
 var Cookies = require('js-cookie');
 var template = require('./template');
 var mainLoop = require("main-loop");
@@ -32,6 +33,7 @@ if (typeof lang == 'undefined') {
 }
 // ignore en_US
 lang = lang == 'en_US' ? undefined : lang;
+
 document.addEventListener("DOMContentLoaded", function () {
     var container = document.getElementById('container');
     var page = document.getElementById('page');
@@ -47,18 +49,25 @@ document.addEventListener("DOMContentLoaded", function () {
                 loadPath: 'translations/{{lng}}.json'
             }
         }, function () {
-            constructor(container, page)
+            constructor(container, page, lang)
         });
 });
 
 
-var constructor = function (container, outerContainer) {
-
+var constructor = function (container, outerContainer, lang) {
+    var items = [];
     var initState = _.findKey(featured, function (item) {
         return !Cookies.get(item.id);
     });
+    if (localisedContent[lang]) {
+        items = localisedContent[lang].content;
+        if (localisedContent[lang].appendContent) {
+            items = items.concat(content, featured);
+        }
+    } else {
+        items = content.concat(featured);
+    }
 
-    var items = content.concat(featured);
     if (!initState) {
         initState = 0;
     }
@@ -75,7 +84,7 @@ var constructor = function (container, outerContainer) {
         return h('div',
             [
                 template(items[index], i18next),
-                h('div.navigation', [
+                items.length > 1 ? h('div.navigation', [
                     h('span.prev', {
                         "onclick": function () {
                             prev();
@@ -86,7 +95,7 @@ var constructor = function (container, outerContainer) {
                             next();
                         }
                     }, h('span.icon-navigate_next', {}))
-                ])
+                ]) : ''
             ])
     }
 
@@ -113,7 +122,9 @@ var constructor = function (container, outerContainer) {
     outerContainer.onmouseout = function (e) {
         hovering = false;
     };
-    createInterval();
+    if(items.length > 1){
+        createInterval();
+    }
     function createInterval() {
         setTimeout(function () {
             if (!hovering) {

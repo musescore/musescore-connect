@@ -15,6 +15,7 @@ gulp.task('translations:generate',  require('./gulp/translations_generate')(gulp
 gulp.task('inlinesource', require('./gulp/inlinesource')(gulp));
 gulp.task('clean', require('./gulp/clean')(gulp));
 gulp.task('content', require('./gulp/content')(gulp));
+gulp.task('localisedContent', require('./gulp/localisedContent')(gulp));
 gulp.task('featured', require('./gulp/featured')(gulp));
 gulp.task('copy:fonts', function () {
     return gulp.src(['src/fonts/*'])
@@ -35,6 +36,7 @@ gulp.task('build', function (callback) {
     runSequence(
         'clean',
         'content',
+        'localisedContent',
         'featured',
         'translations:generate',
         'translations:download',
