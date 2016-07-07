@@ -1,11 +1,11 @@
 {
-  "appendContent": false,
+  "appendContent": true,
   "id": "ja",
   "content": [
     {
-      "id": "getting-started",
+      "id": "connect_video_series_japanese",
       "title": "ミューズスコア解説動画",
-      "image": "http://s3.amazonaws.com/s.musescore.com/connect/Screenshot+2016-07-06+22.07.33.png",
+      "image": "http://s.musescore.com/connect/connect_video_series_japanese.png",
       "url": {
         "value": "http://redirect.musescore.com/connect_video_series_japanese.html",
         "localise": false
