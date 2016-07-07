@@ -4,13 +4,13 @@
   "content": [
     {
       "id": "getting-started",
-      "title": "Learn MuseScore",
-      "image": "https://s3.amazonaws.com/s.musescore.com/connect/Screenshot+2016-07-06+22.07.33.png",
+      "title": "ミューズスコア解説動画",
+      "image": "http://s3.amazonaws.com/s.musescore.com/connect/Screenshot+2016-07-06+22.07.33.png",
       "url": {
-        "value": "https://www.youtube.com/watch?v=gnQz0245uj4&list=PL2uxwe5uztBC6jhHpuSe458guERJ5ciDy",
+        "value": "http://redirect.musescore.com/connect_video_series_japanese.html",
         "localise": false
       },
-      "description": "Video tutorial series by Yamamoto Kazuma",
+      "description": "初心者のためのミューズスコア解説動画シリーズ",
       "ttl": 500
     }
   ]
