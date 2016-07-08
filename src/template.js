@@ -10,13 +10,17 @@ var Cookies = require('js-cookie');
 
 module.exports = function (item, i18next) {
     var url = item.url.value;
+    var description = item.description;
+    var title = item.title;
     var length = 50;
-    if (item.url.localise) {
-        url = i18next.t(item.url.value.replace(/[^a-z0-9 ]/gi, '').replace(/[ ]/g, '_').toLowerCase(), {defaultValue: item.url.value});
+    if (!item.localised) {
+        if (item.url.localise) {
+            url = i18next.t(item.url.value.replace(/[^a-z0-9 ]/gi, '').replace(/[ ]/g, '_').toLowerCase(), {defaultValue: item.url.value});
+        }
+        description = i18next.t(item.description.replace(/[^a-z0-9 ]/gi, '').replace(/[ ]/g, '_').toLowerCase(), {defaultValue: item.description});
+        title = i18next.t(item.title.replace(/[^a-z0-9 ]/gi, '').replace(/[ ]/g, '_').toLowerCase(), {defaultValue: item.title});
     }
-    var description = i18next.t(item.description.replace(/[^a-z0-9 ]/gi, '').replace(/[ ]/g, '_').toLowerCase(), {defaultValue: item.description});
-    var title = i18next.t(item.title.replace(/[^a-z0-9 ]/gi, '').replace(/[ ]/g, '_').toLowerCase(), {defaultValue: item.title});
-
+    
     description = description ? convertHTML(description) : '';
     title = title.length > length ? title.substring(0, length) + '...' : title.substring(0, length);
 

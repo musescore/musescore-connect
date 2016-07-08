@@ -10,8 +10,10 @@ var h = require('virtual-dom/h');
 var _ = {
     findKey: require("lodash.findkey"),
     merge: require("lodash.merge"),
-    find: require("lodash.find")
+    find: require("lodash.find"),
+    map: require("lodash.map")
 };
+
 var languages = require("../translations/languageList.json");
 var language = window.navigator.userLanguage || window.navigator.language;
 
@@ -33,7 +35,6 @@ if (typeof lang == 'undefined') {
 }
 // ignore en_US
 lang = lang == 'en_US' ? undefined : lang;
-
 document.addEventListener("DOMContentLoaded", function () {
     var container = document.getElementById('container');
     var page = document.getElementById('page');
@@ -61,6 +62,11 @@ var constructor = function (container, outerContainer, lang) {
     });
     if (localisedContent[lang]) {
         items = localisedContent[lang].content;
+        items = _.map(items, function(item){
+            item.localised = true;
+            return item;
+        });
+
         if (localisedContent[lang].appendContent) {
             items = items.concat(content, featured);
         }
