@@ -20,7 +20,7 @@ module.exports = function (item, i18next) {
         description = i18next.t(item.description.replace(/[^a-z0-9 ]/gi, '').replace(/[ ]/g, '_').toLowerCase(), {defaultValue: item.description});
         title = i18next.t(item.title.replace(/[^a-z0-9 ]/gi, '').replace(/[ ]/g, '_').toLowerCase(), {defaultValue: item.title});
     }
-    
+
     description = description ? convertHTML(description) : '';
     title = title.length > length ? title.substring(0, length) + '...' : title.substring(0, length);
 
@@ -29,6 +29,10 @@ module.exports = function (item, i18next) {
             h('a', {
                 href: url,
                 "onclick": function () {
+                    ga('send', 'event', 'outbound', 'click', url, {
+                        'transport': 'beacon',
+                        'hitCallback': function(){document.location = url;}
+                    });
                     Cookies.set(item.id, item.id, {expires: item.ttl});
                 }
             }, [
