@@ -44,7 +44,7 @@
     "node-fs-extra": "^0.8.1",
     "node-notifier": "^4.5.0",
     "request": "^2.72.0",
-    "transifex": "^1.4.4",
+    "transifex": "1.4.4",
     "virtual-dom": "^2.1.1"
   }
 }
