@@ -68,11 +68,11 @@ function get(file, cb) {
                                 // paste original image on top of the canvas
                                 canvas.paste(0, 0, image, function (err, image) {
                                     // now image has a white background...
-                                    var width = 145;
-                                    var height = 145 * image.height() / image.width();
+                                    var width = 290;
+                                    var height = 290 * image.height() / image.width();
                                     image.batch()
                                         .resize(width, height)
-                                        .writeFile('./img/' + name + '_small.jpg', 'jpg', {quality: 65}, function (err) {
+                                        .writeFile('./img/' + name + '_small.jpg', 'jpg', {quality: 75}, function (err) {
                                             item.image = 'img/' + name + '_small.jpg';
                                             contentResizedImages[index] = item;
                                             resolve();
