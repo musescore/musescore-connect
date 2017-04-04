@@ -77,7 +77,7 @@ var constructor = function (container, outerContainer, lang) {
     if (!initState) {
         initState = 0;
     }
-    var loopSpeed = 10000;
+    var loopSpeed = 60000;
     var loop = mainLoop(initState, render, {
         create: require("virtual-dom/create-element"),
         diff: require("virtual-dom/diff"),
