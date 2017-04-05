@@ -15,7 +15,7 @@ body {
 
 #page {
     width: 184px;
-    max-height: 500px;
+    height: 100vh;
     position: relative;
     margin: auto;
 }
@@ -54,7 +54,7 @@ img {
 .navigation {
     height: 30px;
     position: absolute;
-    bottom: -30px;
+    bottom: 0px;
     z-index: 0;
     width: 100%;
     display: block;
