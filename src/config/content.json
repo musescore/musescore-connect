@@ -7,7 +7,7 @@
       "value": "http://static.musescore.com/792126/8ca14ebe5f/score.mscz",
       "localise": true
     },
-    "description": "The one-page interactive tutorial by Isaac Weiss",
+    "description": "The one-page interactive tutorial",
     "ttl": 630720000
   },
   {
@@ -18,7 +18,7 @@
       "value": "https://www.youtube.com/watch?v=YZ4kRzkHroU&list=PLTYuWi2LmaPGb4SKXHm9JULQ-0CH8KpUk",
       "localise": false
     },
-    "description": "Video tutorial series by Dr. George Hess",
+    "description": "Video tutorial series",
     "ttl": 630720000
   },
   {
@@ -29,7 +29,7 @@
       "value": "http://connect2.musescore.com/mastering-musescore.html",
       "localise": false
     },
-    "description": "The Ultimate Guidebook by Marc Sabatella",
+    "description": "The Ultimate Guidebook",
     "ttl": 630720000
   }
 ]
