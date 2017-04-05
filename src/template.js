@@ -30,8 +30,7 @@ module.exports = function (item, i18next) {
                 href: url,
                 "onclick": function () {
                     ga('send', 'event', 'outbound', 'click', url, {
-                        'transport': 'beacon',
-                        'hitCallback': function(){document.location = url;}
+                        'transport': 'beacon'
                     });
                     Cookies.set(item.id, item.id, {expires: item.ttl});
                 }
