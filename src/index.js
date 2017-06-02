@@ -33,8 +33,9 @@ if (typeof lang == 'undefined') {
         return lang.substring(0, 2) == language.substring(0, 2);
     });
 }
+
 // ignore en_US
-lang = lang == 'en_US' ? undefined : lang;
+var lang = lang == 'en_US' ? undefined : lang;
 document.addEventListener("DOMContentLoaded", function () {
     var container = document.getElementById('container');
     var page = document.getElementById('page');
@@ -60,6 +61,7 @@ var constructor = function (container, outerContainer, lang) {
     var initState = _.findKey(featured, function (item) {
         return !Cookies.get(item.id);
     });
+
     if (localisedContent[lang]) {
         items = localisedContent[lang].content;
         items = _.map(items, function(item){
@@ -89,7 +91,16 @@ var constructor = function (container, outerContainer, lang) {
     function render(index) {
         return h('div',
             [
-                template(items[index], i18next),
+                h('iframe',{
+                    src:"https://www.kickstarter.com/projects/openscore/openscore-join-the-sheet-music-revolution/widget/card.html?v=2",
+                    width:"220",
+                    height:"420",
+                    frameborder:"0",
+                    scrolling:"no",
+                    style:{
+                        border: 'none'
+                    }
+                }),
                 items.length > 1 ? h('div.navigation', [
                     h('span.prev', {
                         "onclick": function () {
@@ -129,7 +140,7 @@ var constructor = function (container, outerContainer, lang) {
         hovering = false;
     };
     if(items.length > 1){
-        createInterval();
+        //createInterval();
     }
     function createInterval() {
         setTimeout(function () {
