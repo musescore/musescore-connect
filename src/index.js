@@ -61,8 +61,9 @@ var constructor = function (container, outerContainer, lang) {
     var initState = _.findKey(featured, function (item) {
         return !Cookies.get(item.id);
     });
-
+    /*
     if (localisedContent[lang]) {
+
         items = localisedContent[lang].content;
         items = _.map(items, function(item){
             item.localised = true;
@@ -75,7 +76,7 @@ var constructor = function (container, outerContainer, lang) {
     } else {
         items = content.concat(featured);
     }
-
+    */
     if (!initState) {
         initState = 0;
     }
