@@ -94,7 +94,7 @@ var constructor = function (container, outerContainer, lang) {
             [
                 h('iframe',{
                     src:"https://www.kickstarter.com/projects/openscore/openscore-join-the-sheet-music-revolution/widget/card.html?v=2",
-                    width:"185",
+                    width:"220",
                     height:"420",
                     frameborder:"0",
                     scrolling:"no",
