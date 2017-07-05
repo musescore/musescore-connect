@@ -1,5 +1,16 @@
 [
   {
+    "id": "musescore-survey",
+    "title": "Take the MuseScore survey",
+    "image": "https://farm6.staticflickr.com/5528/11911636584_ce0f156185_z.jpg",
+    "url": {
+      "value": "https://goo.gl/forms/CHbXSlVGKJasj72k2",
+      "localise": false
+    },
+    "description": "You can win MuseScore Pro",
+    "ttl": 630720000
+  },
+  {
     "id": "getting-started",
     "title": "Getting Started",
     "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
