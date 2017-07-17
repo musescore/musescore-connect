@@ -1,13 +1,13 @@
 [
   {
     "id": "musescore-survey",
-    "title": "Help shape MuseScore's future",
+    "title": "Take the MuseScore survey",
     "image": "https://farm6.staticflickr.com/5528/11911636584_ce0f156185_z.jpg",
     "url": {
       "value": "https://goo.gl/forms/CHbXSlVGKJasj72k2",
       "localise": false
     },
-    "description": "Take the MuseScore survey",
+    "description": "You can win MuseScore Pro",
     "ttl": 630720000
   },
   {
