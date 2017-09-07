@@ -2,6 +2,8 @@
 
 if [ -n "$TRAVIS_TAG" ]; then
     export ARTIFACTS_TARGET_PATHS=/
+elif [ ${TRAVIS_BRANCH} == release ]; then
+    export ARTIFACTS_TARGET_PATHS=/
 else
     export ARTIFACTS_TARGET_PATHS=beta
 fi
