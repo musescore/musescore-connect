@@ -1,5 +1,16 @@
 [
   {
+    "id": "musescore-drumline",
+    "title": "MuseScore Drumline",
+    "image": "https://s3.amazonaws.com/cdn.musescore.org/connect/mdl_promo_sc_a.png",
+    "url": {
+      "value": "https://musescore.org/mdl",
+      "localise": false
+    },
+    "description": "Extension for MuseScore 2.3",
+    "ttl": 630720000
+  },
+  {
     "id": "getting-started",
     "title": "Getting Started",
     "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
@@ -31,5 +42,5 @@
     },
     "description": "The Ultimate Guidebook",
     "ttl": 630720000
-  }
+  },
 ]
