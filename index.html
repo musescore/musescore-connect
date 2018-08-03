@@ -30,7 +30,14 @@
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-11896755-10', 'auto');
     ga('send', 'pageview');
-
+    if (typeof(mscore) !== 'undefined' && typeof(mscore.isInstalledExtension)!== 'undefined') {
+      ga('send', {
+        hitType: 'event',
+        eventAction: 'extension_check',
+        eventLabel:mscore.isInstalledExtension("mdl")?"Mdl installed":"Mdl not installed",
+        eventValue: mscore.isInstalledExtension("mdl") ? 1 : 0
+      });
+    }
 </script>
 <script>
     var searchSubmit = document.getElementById('search-form');
@@ -38,7 +45,7 @@
         event.preventDefault();
         var searchText = document.getElementById('search-text');
         if (searchText.value != "") {
-          var url = document.getElementById('search-form').action + '?text=' + encodeURIComponent(searchText.value);
+          var url = document.getElementById('search-form').action + '?text=' + encodeURIComponent(searchText.value) + "&utm_source=connect&utm_medium=editor&utm_campaign=connect";
           if (typeof(mscore) == 'undefined') {
             window.location = url;
           }
@@ -67,12 +74,12 @@
                 });
             } catch(e) { }
         });
-        var n = d.getElementsByTagName("script")[0],
-            s = d.createElement("script"),
-            f = function () { n.parentNode.insertBefore(s, n); };
-        s.type = "text/javascript";
-        s.async = true;
-        s.src = "https://mc.yandex.ru/metrika/watch.js";
+      var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+      s.type = "text/javascript";
+      s.async = true;
+      s.src = "https://mc.yandex.ru/metrika/watch.js";
         if (w.opera == "[object Opera]") {
             d.addEventListener("DOMContentLoaded", f, false);
         } else { f(); }

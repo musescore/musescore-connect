@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "build": "gulp build",
+    "watch": "gulp watchify",
     "api": "gulp api"
   },
   "devDependencies": {
@@ -35,6 +36,7 @@
     "i18next": "^3.2.0",
     "i18next-xhr-backend": "^0.6.0",
     "js-cookie": "^2.1.0",
+    "lodash.filter": "^4.6.0",
     "lodash.find": "^4.4.0",
     "lodash.findkey": "^4.2.0",
     "lodash.foreach": "^4.1.0",
@@ -43,6 +45,7 @@
     "main-loop": "^3.2.0",
     "node-fs-extra": "^0.8.1",
     "node-notifier": "^4.5.0",
+    "querystringify": "^2.0.0",
     "request": "^2.72.0",
     "transifex": "1.4.4",
     "virtual-dom": "^2.1.1"

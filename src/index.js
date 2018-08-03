@@ -11,6 +11,7 @@ var _ = {
     findKey: require("lodash.findkey"),
     merge: require("lodash.merge"),
     find: require("lodash.find"),
+    filter: require("lodash.filter"),
     map: require("lodash.map")
 };
 
@@ -22,6 +23,7 @@ language = language.replace('-', '_');
 var lang = _.find(languages, function (lang) {
     return lang == language;
 });
+
 
 if (typeof lang == 'undefined') {
     lang = _.find(languages, function (lang) {
@@ -73,6 +75,31 @@ var constructor = function (container, outerContainer, lang) {
     } else {
         items = content.concat(featured);
     }
+  // Filter out the update slide if needed.
+  items = _.filter(items, function (item) {
+    if (item.id.includes('musescore-update')) {
+      var split = item.id.split('|')
+      if (typeof mscore !== 'undefined' && typeof mscore.version !== 'undefined') {
+        var Installedversion = mscore.version().split('.')
+        var CurrentVersion = split[1].split('.')
+        if (Installedversion[0] < CurrentVersion[0]) {
+          return true
+        } else if (Installedversion[0] === CurrentVersion[0]) {
+          if (Installedversion[1] < CurrentVersion[1]) {
+            return true
+          } else if (Installedversion[1] === CurrentVersion[1]) {
+            if (Installedversion[2] < CurrentVersion[2]) {
+              console.log("smaller_3")
+              return true
+            }
+          }
+        }
+      }
+      return false
+    } else {
+      return true
+    }
+  })
 
     if (!initState) {
         initState = 0;
