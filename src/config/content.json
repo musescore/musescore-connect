@@ -1,16 +1,5 @@
 [
   {
-    "id": "musescore-update|2.3.2",
-    "title": "New MuseScore release",
-    "image": "https://s3.amazonaws.com/cdn.musescore.org/connect/mu_2_3_promo_sc_b.png",
-    "url": {
-      "value": "https://musescore.org",
-      "localise": true
-    },
-    "description": "Better sound, more stability",
-    "ttl": 630720000
-  },
-  {
     "id": "getting-started",
     "title": "Getting Started",
     "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
