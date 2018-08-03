@@ -12,6 +12,7 @@ var _ = {
     merge: require("lodash.merge"),
     find: require("lodash.find"),
     filter: require("lodash.filter"),
+    includes: require("lodash.includes"),
     map: require("lodash.map")
 };
 
@@ -77,7 +78,7 @@ var constructor = function (container, outerContainer, lang) {
     }
   // Filter out the update slide if needed.
   items = _.filter(items, function (item) {
-    if (item.id.includes('musescore-update')) {
+    if (_.includes(item.id,'musescore-update')) {
       var split = item.id.split('|')
       if (typeof mscore !== 'undefined' && typeof mscore.version !== 'undefined') {
         var Installedversion = mscore.version().split('.')
