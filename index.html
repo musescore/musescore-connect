@@ -30,7 +30,14 @@
     })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
     ga('create', 'UA-11896755-10', 'auto');
     ga('send', 'pageview');
-
+    if (typeof(mscore) !== 'undefined' && typeof(mscore.isInstalledExtension)!== 'undefined') {
+      ga('send', {
+        hitType: 'event',
+        eventAction: 'extension_check',
+        eventLabel:mscore.isInstalledExtension("mdl")?"Mdl installed":"Mdl not installed",
+        eventValue: mscore.isInstalledExtension("mdl") ? 1 : 0
+      });
+    }
 </script>
 <script>
     var searchSubmit = document.getElementById('search-form');
