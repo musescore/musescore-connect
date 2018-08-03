@@ -38,7 +38,7 @@
         event.preventDefault();
         var searchText = document.getElementById('search-text');
         if (searchText.value != "") {
-          var url = document.getElementById('search-form').action + '?text=' + encodeURIComponent(searchText.value);
+          var url = document.getElementById('search-form').action + '?text=' + encodeURIComponent(searchText.value) + "&utm_source=connect&utm_medium=editor&utm_campaign=connect";
           if (typeof(mscore) == 'undefined') {
             window.location = url;
           }
