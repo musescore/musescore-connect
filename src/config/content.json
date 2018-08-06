@@ -4,7 +4,7 @@
     "title": "New MuseScore release",
     "image": "https://s3.amazonaws.com/cdn.musescore.org/connect/mu_2_3_promo_sc_b.png",
     "url": {
-      "value": "https://musescore.org",
+      "value": "https://musescore.org/download",
       "localise": true
     },
     "description": "Better sound, more stability",
