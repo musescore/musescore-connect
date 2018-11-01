@@ -1,5 +1,16 @@
 [
-    {
+  {
+    "id": "mastering-musescore",
+    "title": "Mastering MuseScore: Complete Online Course",
+    "image": "http://s3.amazonaws.com/connect2.musescore.com/files/mastering-musescore-connect.png",
+    "url": {
+      "value": "https://masteringmusescore.com/get/course",
+      "localise": false
+    },
+    "description": "NEW! Video Course",
+    "ttl": 630720000
+  },
+  {
     "id": "musescore-update|2.3.2",
     "title": "New MuseScore release",
     "image": "https://s3.amazonaws.com/cdn.musescore.org/connect/mu_2_3_promo_sc_b.png",
@@ -30,17 +41,6 @@
       "localise": false
     },
     "description": "Video tutorial series",
-    "ttl": 630720000
-  },
-  {
-    "id": "mastering-musescore",
-    "title": "Mastering MuseScore",
-    "image": "http://s3.amazonaws.com/connect2.musescore.com/files/mastering-musescore-connect.jpg",
-    "url": {
-      "value": "http://connect2.musescore.com/mastering-musescore.html",
-      "localise": false
-    },
-    "description": "The Ultimate Guidebook",
     "ttl": 630720000
   },
   {
