@@ -1,5 +1,16 @@
 [
   {
+    "id": "musescore-update|3.0.0",
+    "title": "Try MuseScore 3.0 Beta Now",
+    "image": "https://s3.amazonaws.com/cdn.musescore.org/connect/mu_30_beta_promo.png",
+    "url": {
+      "value": "https://musescore.org/download",
+      "localise": true
+    },
+    "description": "New Features Better Experience",
+    "ttl": 630720000
+  },
+  {
     "id": "mastering-musescore",
     "title": "Mastering MuseScore: Complete Online Course",
     "image": "http://s3.amazonaws.com/connect2.musescore.com/files/mastering-musescore-connect.png",
@@ -8,17 +19,6 @@
       "localise": false
     },
     "description": "NEW! Video Course",
-    "ttl": 630720000
-  },
-  {
-    "id": "musescore-update|2.3.2",
-    "title": "New MuseScore release",
-    "image": "https://s3.amazonaws.com/cdn.musescore.org/connect/mu_2_3_promo_sc_b.png",
-    "url": {
-      "value": "https://musescore.org/download",
-      "localise": true
-    },
-    "description": "Better sound, more stability",
     "ttl": 630720000
   },
   {
