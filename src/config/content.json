@@ -24,9 +24,9 @@
   {
     "id": "getting-started",
     "title": "Getting Started",
-    "image": "http://static.musescore.com/792126/8ca14ebe5f/score_0.png",
+    "image": "https://musescore.com/static/musescore/scoredata/gen/6/2/1/792126/52cf0801663b6dcef175c406d39e769c95f7b6fc//score_0.png",
     "url": {
-      "value": "http://static.musescore.com/792126/8ca14ebe5f/score.mscz",
+      "value": "https://musescore.com/static/musescore/scoredata/score/6/2/1/792126/score_5290936_52cf0801663b6dcef175c406d39e769c95f7b6fc.mscz",
       "localise": true
     },
     "description": "The one-page interactive tutorial",
